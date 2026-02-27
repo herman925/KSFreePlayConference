@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activity Details - Free Play Case Conference</title>
+    <link rel="stylesheet" href="../styles/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .tabs-container {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 24px;
+            overflow-x: auto;
+            padding-bottom: 8px;
+        }
+        .tab-btn {
+            background: #ffffff;
+            border: 1px solid #e8eaed;
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-size: 1em;
+            font-weight: 500;
+            color: #5f6368;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .tab-btn:hover {
+            background: #f8f9fa;
+            border-color: #dadce0;
+        }
+        .tab-btn.active {
+            background: #e8f0fe;
+            color: #1a73e8;
+            border-color: #d2e3fc;
+        }
+        .tab-btn.active-facilitator {
+            background: #fdf6f6;
+            color: #c5221f;
+            border-color: #fce8e6;
+        }
+        
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .activity-header-card {
+            background: linear-gradient(135deg, #1a73e8, #1557b0);
+            color: white;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 12px rgba(26, 115, 232, 0.2);
+        }
+        .activity-header-card h2 {
+            margin: 0 0 16px 0;
+            font-size: 1.5em;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        /* Timeline styling for steps */
+        .timeline-container {
+            position: relative;
+            padding-left: 40px;
+            margin-top: 30px;
+        }
+        .timeline-container::before {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #e8eaed;
+        }
+        .timeline-step {
+            position: relative;
+            margin-bottom: 32px;
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            border: 1px solid #f1f3f4;
+            transition: transform 0.2s ease;
+        }
+        .timeline-step:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+        }
+        .timeline-step::before {
+            content: '';
+            position: absolute;
+            left: -30px;
+            top: 24px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #1a73e8;
+            border: 3px solid #ffffff;
+            box-shadow: 0 0 0 2px #d2e3fc;
+            z-index: 1;
+        }
+        .step-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #f1f3f4;
+        }
+        .step-title {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #202124;
+            margin: 0;
+        }
+        .step-time {
+            background: #f1f3f4;
+            color: #5f6368;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        /* Action split layout */
+        .actions-split {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 16px;
+        }
+        .action-box {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 16px;
+            height: 100%;
+        }
+        .action-box.facilitator {
+            background: #fdf6f6;
+            border-left: 3px solid #c5221f;
+        }
+        .action-box.participant {
+            background: #e8f0fe;
+            border-left: 3px solid #1a73e8;
+        }
+        .action-title {
+            font-weight: 600;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .action-box.facilitator .action-title { color: #c5221f; }
+        .action-box.participant .action-title { color: #1a73e8; }
+        
+        .action-content ol, .action-content ul {
+            margin: 0;
+            padding-left: 20px;
+            color: #3c4043;
+        }
+        .action-content li { margin-bottom: 6px; line-height: 1.5; }
+        
+        .materials-box {
+            background: #fff;
+            border: 1px dashed #dadce0;
+            border-radius: 8px;
+            padding: 12px 16px;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .materials-title {
+            font-weight: 600;
+            color: #5f6368;
+            margin-right: 8px;
+        }
+        .material-tag {
+            background: #f1f3f4;
+            color: #3c4043;
+            padding: 4px 12px;
+            border-radius: 16px;
+            font-size: 0.9em;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            border: 1px solid #e8eaed;
+        }
+
+        /* Info Cards */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 24px;
+        }
+        .info-card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+            border: 1px solid #f1f3f4;
+        }
+        .info-card h3 {
+            color: #202124;
+            margin-top: 0;
+            margin-bottom: 12px;
+            font-size: 1.1em;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        /* Facilitator specific styles */
+        .fac-card {
+            border-left: 4px solid #c5221f;
+        }
+        .fac-card h3 { color: #c5221f; }
+        
+        .cps-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .cps-list li {
+            padding: 8px 12px;
+            background: #f8f9fa;
+            margin-bottom: 8px;
+            border-radius: 6px;
+            border-left: 3px solid #1a73e8;
+            font-weight: 500;
+        }
+        
+        .padlet-link-banner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #e8f0fe;
+            border: 1px solid #d2e3fc;
+            padding: 16px 24px;
+            border-radius: 8px;
+            margin-bottom: 24px;
+        }
+        .padlet-link-banner a {
+            background: #1a73e8;
+            color: white;
+            text-decoration: none;
+            padding: 8px 20px;
+            border-radius: 6px;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: background 0.2s;
+        }
+        .padlet-link-banner a:hover { background: #1557b0; }
+
+        /* General utility classes extracted from inline styles */
+        .mb-0 { margin-bottom: 0; }
+        .mb-2 { margin-bottom: 8px; }
+        .mt-0 { margin-top: 0; }
+        .mt-2 { margin-top: 8px; }
+        .mt-3 { margin-top: 12px; }
+        .mt-4 { margin-top: 16px; }
+        .mt-6 { margin-top: 24px; }
+        .pl-5 { padding-left: 20px; }
+        .opacity-90 { opacity: 0.9; }
+        .line-height-15 { line-height: 1.5; }
+        .color-text-main { color: #3c4043; }
+        .color-text-muted { color: #5f6368; }
+        .color-blue { color: #1a73e8; }
+        .color-red { color: #c5221f; }
+        .fw-500 { font-weight: 500; }
+        .text-italic { font-style: italic; }
+        .d-block { display: block; }
+        .grid-gap-4 { display: grid; gap: 16px; }
+        .grid-auto-fit { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px; }
+        .col-span-full { grid-column: 1 / -1; }
+        
+        .fac-prep-card {
+            background: #f8f9fa;
+            padding: 16px;
+            border-radius: 8px;
+        }
+        .fac-prep-checklist-item {
+            background: #f8f9fa;
+            padding: 12px;
+            border-radius: 6px;
+        }
+        .fac-prep-warning-item {
+            background: #fdf6f6;
+            padding: 12px;
+            border-radius: 6px;
+            border: 1px solid #fce8e6;
+            color: #c5221f;
+        }
+        .reality-check-item {
+            background: #fff3e0;
+            border-left: 4px solid #f29900;
+            padding: 12px;
+            border-radius: 0 6px 6px 0;
+            margin-bottom: 12px;
+        }
+        .reality-check-title { color: #b06900; }
+        .reality-check-desc { font-size: 0.9em; margin-top: 4px; }
+        .transferable-learning-box {
+            background: #f8f9fa;
+            padding: 12px;
+            border-radius: 6px;
+            border-left: 3px solid #1a73e8;
+        }
+
+        @media (max-width: 768px) {
+            .actions-split {
+                grid-template-columns: 1fr;
+            }
+            .timeline-container {
+                padding-left: 20px;
+            }
+            .timeline-container::before {
+                left: 0;
+            }
+            .timeline-step::before {
+                left: -25px;
+            }
+            .padlet-link-banner {
+                flex-direction: column;
+                gap: 16px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="nav-wrapper">
+            <a href="../index.html" class="back-button">
+                <i class="fas fa-arrow-left"></i> Back to Dashboard
+            </a>
+            <div class="person-selector">
+                <select id="roleSelect" title="Select your role">
+                    <option value="">Select Your Role</option>
+                </select>
+            </div>
+        </nav>
+    </header>
+
+    <main class="content-wrapper">
+        <section class="page-header" style="margin-bottom: 20px;">
+            <h1><i class="fas fa-layer-group"></i> Activity Playbook</h1>
+            <p class="subtitle">Complete guide for participants and facilitators</p>
+        </section>
+
+        <!-- Tabs Navigation -->
+        <div class="tabs-container">
+            <button class="tab-btn active" onclick="switchTab('activity1', this)"><i class="fas fa-puzzle-piece"></i> Activity 1</button>
+            <button class="tab-btn" onclick="switchTab('activity2', this)"><i class="fas fa-map-marked-alt"></i> Activity 2</button>
+            <button class="tab-btn" onclick="switchTab('fac1', this)"><i class="fas fa-chalkboard-teacher"></i> Fac: Act 1 Prep</button>
+            <button class="tab-btn" onclick="switchTab('fac2', this)"><i class="fas fa-chalkboard-teacher"></i> Fac: Act 2 Prep</button>
+        </div>
+
+        <!-- ==========================================
+             ACTIVITY 1 CONTENT
+             ========================================== -->
+        <div id="activity1" class="tab-content active">
+            <div class="activity-header-card">
+                <h2><i class="fas fa-users-cog"></i> Solving Persistent Implementation Barriers</h2>
+                <p class="mb-0 opacity-90 line-height-15">To help teachers consolidate their learning by identifying and solving real, persistent difficulties in sustaining Free Play practice in a kindergarten setting.</p>
+            </div>
+
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3><i class="fas fa-bullseye"></i> Objectives</h3>
+                    <ul class="mb-0 pl-5 color-text-main line-height-15">
+                        <li>Analyse barriers using CPS dimensions</li>
+                        <li>Generate practical, classroom-ready solutions</li>
+                        <li>Formulate actionable implementation plans</li>
+                        <li>Synthesize insights with the larger group</li>
+                    </ul>
+                </div>
+                <div class="info-card">
+                    <h3><i class="fas fa-sitemap"></i> Grouping Strategy</h3>
+                    <p class="mb-0 color-text-main line-height-15"><strong>5-6 mixed groups.</strong> Intentional mixing (not by district) using counting off or color-coded tags to ensure diverse perspectives.</p>
+                </div>
+            </div>
+
+            <div class="timeline-container">
+                <!-- Step 1 -->
+                <div class="timeline-step">
+                    <div class="step-header">
+                        <h3 class="step-title">Step 1: Introduction</h3>
+                        <span class="step-time"><i class="far fa-clock"></i> 3 mins</span>
+                    </div>
+                    <div class="actions-split">
+                        <div class="action-box participant">
+                            <div class="action-title"><i class="fas fa-user"></i> Participant Actions</div>
+                            <div class="action-content">
+                                <ul><li>Confirm purpose and understand exchange flow</li></ul>
+                            </div>
+                        </div>
+                        <div class="action-box facilitator">
+                            <div class="action-title"><i class="fas fa-chalkboard-teacher"></i> Facilitator Actions</div>
+                            <div class="action-content">
+                                <ol>
+                                    <li>Introduce the goal of the activity</li>
+                                    <li>Introduce the method of collecting difficulties</li>
+                                    <li>Explain the 4-step process (Identify, Analyze, Plan, Share)</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="timeline-step">
+                    <div class="step-header">
+                        <h3 class="step-title">Step 2: Generate Challenges</h3>
+                        <span class="step-time"><i class="far fa-clock"></i> 10 mins</span>
+                    </div>
+                    <div class="actions-split">
+                        <div class="action-box participant">
+                            <div class="action-title"><i class="fas fa-user"></i> Participant Actions</div>
+                            <div class="action-content">
+                                <ul><li>Discuss and write multiple challenges (one per slip/card). Aim for 5–7 concise items.</li></ul>
+                            </div>
+                        </div>
+                        <div class="action-box facilitator">
+                            <div class="action-title"><i class="fas fa-chalkboard-teacher"></i> Facilitator Actions</div>
+                            <div class="action-content">
+                                <ul><li>Circulate among groups, asking questions to guide the challenge generation.</li></ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="materials-box">
+                        <span class="materials-title">Materials:</span>
+                        <span class="material-tag"><i class="fas fa-sticky-note"></i> Blank challenge slips</span>
+                        <span class="material-tag"><i class="fas fa-pen"></i> Pens</span>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="timeline-step">
+                    <div class="step-header">
+                        <h3 class="step-title">Step 3: Pass to another table</h3>
+                        <span class="step-time"><i class="far fa-clock"></i> 2 mins</span>
+                    </div>
+                    <div class="actions-split">
+                        <div class="action-box participant col-span-full">
+                            <div class="action-title"><i class="fas fa-user"></i> Participant Actions</div>
+                            <div class="action-content">
+                                <ul><li>Seal slips in the envelope/box, pass to another table.</li></ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="materials-box">
+                        <span class="materials-title">Materials:</span>
+                        <span class="material-tag"><i class="fas fa-box"></i> Small box / envelope</span>
+                    </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="timeline-step">
+                    <div class="step-header">
+                        <h3 class="step-title">Step 4: Synthesizing for Sharing</h3>
+                        <span class="step-time"><i class="far fa-clock"></i> 15 mins</span>
+                    </div>
+                    <div class="actions-split">
+                        <div class="action-box participant">
+                            <div class="action-title"><i class="fas fa-user"></i> Participant Actions</div>
+                            <div class="action-content">
+                                <ol>
+                                    <li>Rank challenges using a quick rule (e.g., Impact × Feasibility or "Top 3 most blocking")</li>
+                                    <li>For top challenges, discuss & propose one solution and concrete steps tied to CPS Components</li>
+                                </ol>
+                            </div>
+                        </div>
+                        <div class="action-box facilitator">
+                            <div class="action-title"><i class="fas fa-chalkboard-teacher"></i> Facilitator Actions</div>
+                            <div class="action-content">
+                                <ol>
+                                    <li>Encourage groups to think creatively and practically</li>
+                                    <li>Remind them to focus on solutions within their control</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="materials-box">
+                        <span class="materials-title">Materials:</span>
+                        <span class="material-tag"><i class="fas fa-list-ol"></i> Difficulty Leaderboard</span>
+                        <span class="material-tag"><i class="fas fa-file-alt"></i> CPS prompt sheet</span>
+                    </div>
+                </div>
+
+                <!-- Step 5 -->
+                <div class="timeline-step">
+                    <div class="step-header">
+                        <h3 class="step-title">Step 5: Whole-Group Share-Back</h3>
+                        <span class="step-time"><i class="far fa-clock"></i> 10 mins</span>
+                    </div>
+                    <div class="actions-split">
+                        <div class="action-box participant">
+                            <div class="action-title"><i class="fas fa-user"></i> Participant Actions</div>
+                            <div class="action-content">
+                                <ul><li>Each group's representative shares their key takeaway with the larger group.</li></ul>
+                            </div>
+                        </div>
+                        <div class="action-box facilitator">
+                            <div class="action-title"><i class="fas fa-chalkboard-teacher"></i> Facilitator Actions</div>
+                            <div class="action-content">
+                                <ul><li>Select five groups for stand-up sharing.</li></ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==========================================
+             ACTIVITY 2 CONTENT
+             ========================================== -->
+        <div id="activity2" class="tab-content">
+            <div class="activity-header-card" style="background: linear-gradient(135deg, #0d9488, #0f766e);">
+                <h2><i class="fas fa-map-marked-alt"></i> "Our Playful Community" Resource Mapping</h2>
+                <p class="mb-0 opacity-90 line-height-15">Collaboratively identify and evaluate local community resources through the lens of quality play principles to strengthen the home-school-community partnership.</p>
+            </div>
+
+            <div class="padlet-link-banner">
+                <div>
+                    <h3 class="mt-0 mb-2 color-blue"><i class="fas fa-link"></i> Interactive Padlet Board</h3>
+                    <p class="mb-0 color-text-muted" style="font-size: 0.9em;">Use this board to map community resources</p>
+                </div>
+                <a href="https://padlet.com/herman925/padlet-wn71epc6q7opgcf6" target="_blank" rel="noopener noreferrer">
+                    Open Padlet <i class="fas fa-external-link-alt"></i>
+                </a>
+            </div>
+
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3><i class="fas fa-bullseye"></i> Objectives</h3>
+                    <ul class="mb-0 pl-5 color-text-main line-height-15">
+                        <li>Evaluate spaces using CPS playfulness dimensions</li>
+                        <li>Co-create a digital map of community resources</li>
+                        <li>Spot opportunities compensating for urban play limitations</li>
+                        <li>Generate practical parent takeaways</li>
+                    </ul>
+                </div>
+                <div class="info-card">
+                    <h3><i class="fas fa-sitemap"></i> Grouping Strategy</h3>
+                    <p class="mb-0 color-text-main line-height-15"><strong>District-based groups.</strong> Divided into Tuen Mun, Yuen Long, Kowloon City, Sha Tin, and Sham Shui Po to maximize local relevance.</p>
+                </div>
+            </div>
+
+            <div class="timeline-container">
+                <!-- Step 1.0 -->
+                <div class="timeline-step">
+                    <div class="step-header">
+                        <h3 class="step-title">Step 1.0: Introduction</h3>
+                        <span class="step-time"><i class="far fa-clock"></i> 2 mins</span>
+                    </div>
+                    <div class="actions-split">
+                        <div class="action-box participant">
+                            <div class="action-title"><i class="fas fa-user"></i> Participant Actions</div>
+                            <div class="action-content">
+                                <ol>
+                                    <li>Scan QR code to access the Padlet board</li>
+                                    <li>Confirm they are in the correct district-based groups</li>
+                                </ol>
+                            </div>
+                        </div>
+                        <div class="action-box facilitator">
+                            <div class="action-title"><i class="fas fa-chalkboard-teacher"></i> Facilitator Actions</div>
+                            <div class="action-content">
+                                <ol>
+                                    <li>Clearly state goal: create collaborative map</li>
+                                    <li>Introduce Padlet and the 4-step process</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 2.0 -->
+                <div class="timeline-step">
+                    <div class="step-header">
+                        <h3 class="step-title">Step 2.0: Community Brainstorming</h3>
+                        <span class="step-time"><i class="far fa-clock"></i> 10 mins</span>
+                    </div>
+                    <div class="actions-split">
+                        <div class="action-box participant">
+                            <div class="action-title"><i class="fas fa-user"></i> Participant Actions</div>
+                            <div class="action-content">
+                                <ol>
+                                    <li>Break into district groups</li>
+                                    <li>Brainstorm local spaces (parks, libraries, waterfronts)</li>
+                                    <li>Post each location as a new item on the Padlet map</li>
+                                </ol>
+                            </div>
+                        </div>
+                        <div class="action-box facilitator">
+                            <div class="action-title"><i class="fas fa-chalkboard-teacher"></i> Facilitator Actions</div>
+                            <div class="action-content">
+                                <ol>
+                                    <li>Circulate and challenge groups to look beyond standard playgrounds</li>
+                                    <li>Prompt for unique spaces (water, sand, messy play) addressing urban limitations</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 3.0 -->
+                <div class="timeline-step">
+                    <div class="step-header">
+                        <h3 class="step-title">Step 3.0: Analysis & Annotation</h3>
+                        <span class="step-time"><i class="far fa-clock"></i> 10 mins</span>
+                    </div>
+                    <div class="actions-split">
+                        <div class="action-box participant">
+                            <div class="action-title"><i class="fas fa-user"></i> Participant Actions</div>
+                            <div class="action-content">
+                                <ol>
+                                    <li>Use "Legend" sheet to analyse mapped locations</li>
+                                    <li>Add comments to Padlet evaluating space against prompt sheet principles</li>
+                                </ol>
+                            </div>
+                        </div>
+                        <div class="action-box facilitator">
+                            <div class="action-title"><i class="fas fa-chalkboard-teacher"></i> Facilitator Actions</div>
+                            <div class="action-content">
+                                <ul><li>Prompt with targeted questions: "How to use storytelling here?" or "How to empower parents as facilitators?"</li></ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="materials-box">
+                        <span class="materials-title">Materials:</span>
+                        <span class="material-tag"><i class="fas fa-map"></i> 'Legend' Sheet</span>
+                    </div>
+                </div>
+
+                <!-- Step 4.0 -->
+                <div class="timeline-step">
+                    <div class="step-header">
+                        <h3 class="step-title">Step 4.0: Synthesis Preparation</h3>
+                        <span class="step-time"><i class="far fa-clock"></i> 3 mins</span>
+                    </div>
+                    <div class="actions-split">
+                        <div class="action-box participant">
+                            <div class="action-title"><i class="fas fa-user"></i> Participant Actions</div>
+                            <div class="action-content">
+                                <ol>
+                                    <li>Review annotated map</li>
+                                    <li>Identify 1-2 key landmarks or surprising insights</li>
+                                    <li>Designate member to share takeaway in under 2 mins</li>
+                                </ol>
+                            </div>
+                        </div>
+                        <div class="action-box facilitator">
+                            <div class="action-title"><i class="fas fa-chalkboard-teacher"></i> Facilitator Actions</div>
+                            <div class="action-content">
+                                <ul><li>Announce transition. Remind groups to be concise and focus on most impactful finding.</li></ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 5.0 -->
+                <div class="timeline-step">
+                    <div class="step-header">
+                        <h3 class="step-title">Step 5.0: Whole-Group Share-Back</h3>
+                        <span class="step-time"><i class="far fa-clock"></i> 15 mins</span>
+                    </div>
+                    <div class="actions-split">
+                        <div class="action-box participant">
+                            <div class="action-title"><i class="fas fa-user"></i> Participant Actions</div>
+                            <div class="action-content">
+                                <ul><li>One representative from each group shares their key takeaway with the entire audience.</li></ul>
+                            </div>
+                        </div>
+                        <div class="action-box facilitator">
+                            <div class="action-title"><i class="fas fa-chalkboard-teacher"></i> Facilitator Actions</div>
+                            <div class="action-content">
+                                <ul>
+                                    <li>Facilitate brief wrap-up, highlighting common themes or innovative ideas across districts.</li>
+                                    <li class="color-red fw-500 mt-2">Note: Select five groups for stand-up sharing (one per district)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==========================================
+             FACILITATOR ACTIVITY 1 CONTENT
+             ========================================== -->
+        <div id="fac1" class="tab-content">
+            <div class="info-grid">
+                <div class="info-card fac-card">
+                    <h3><i class="fas fa-boxes"></i> Required Materials</h3>
+                    <ul class="mb-0 pl-5 color-text-main">
+                        <li>Flip chart paper or a large whiteboard</li>
+                        <li>Multiple sets of colored markers</li>
+                        <li>Challenge slips</li>
+                        <li>Pre-printed "challenge leaderboard"</li>
+                        <li>Visible timer/clock</li>
+                        <li>Opaque envelope/pouch/small box</li>
+                        <li>CPS Prompt Sheet</li>
+                        <li>Facilitator backup: curated challenge slips</li>
+                    </ul>
+                </div>
+                <div class="info-card fac-card">
+                    <h3><i class="fas fa-brain"></i> CPS Analytical Lens</h3>
+                    <p class="mb-3 color-text-main mt-0">Use CPS to diagnose barriers and design solutions to increase playfulness:</p>
+                    <ul class="cps-list">
+                        <li>Social spontaneity</li>
+                        <li>Cognitive spontaneity</li>
+                        <li>Physical spontaneity</li>
+                        <li>Sense of humour</li>
+                        <li>Manifest joy</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="info-card fac-card mt-6">
+                <h3><i class="fas fa-life-ring"></i> Curated Pool of Persistent Difficulties (Backup Slips)</h3>
+                <p class="color-text-muted text-italic">Use these if a group's slip is too vague, or to quickly seed discussion.</p>
+                
+                <div class="grid-gap-4 mt-4">
+                    <div class="fac-prep-card">
+                        <strong class="color-blue d-block mb-2">社交自發性 (Social spontaneity)</strong>
+                        <ul class="mb-0 pl-5 color-text-main">
+                            <li>小朋友多數各自玩，明明有「多人玩」嘅區角都好少主動加入。</li>
+                            <li>點樣幫小朋友「入場」加入同伴遊戲，但又唔係我幫佢分配角色／安排劇本？</li>
+                            <li>成日係某幾個小朋友霸住最受歡迎嗰區，其他人就游離唔知做咩。</li>
+                            <li>自由遊戲期間衝突好密，最後變咗「處理紀律」多過玩。</li>
+                            <li>有啲小朋友一俾人拒絕就即刻縮返後；我可以點樣即場支援？</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="fac-prep-card">
+                        <strong class="color-blue d-block mb-2">認知自發性 (Cognitive spontaneity)</strong>
+                        <ul class="mb-0 pl-5 color-text-main">
+                            <li>小朋友成日望住我表示之後應該做咩，等指令先郁。</li>
+                            <li>點樣延伸佢哋嘅想法，但又唔會變成老師主導嘅教學活動？</li>
+                            <li>每日都玩同一條故事線，冇乜新變化。</li>
+                            <li>因為要配合主題／課程要求，變到好難畀小朋友真正 improvise。</li>
+                            <li>物料好有限，我唔知點樣引出更多可能性。</li>
+                        </ul>
+                    </div>
+
+                    <div class="fac-prep-card">
+                        <strong class="color-blue d-block mb-2">身體自發性 (Physical spontaneity)</strong>
+                        <ul class="mb-0 pl-5 color-text-main">
+                            <li>空間細所以限制走動，最後自由遊戲變咗「坐定定、靜靜地」。</li>
+                            <li>點樣喺「好逼嘅房」都容許大肌肉活動，但又安全？</li>
+                            <li>一見到爬／跳／搬運就好快制止，因為驚受傷。</li>
+                            <li>校內規則好似「唔好掂、唔好郁太多」，整體氣氛好收。</li>
+                            <li>收拾／排隊／轉場太密，玩到起勢就被打斷，之後好難再投入。</li>
+                        </ul>
+                    </div>
+
+                    <div class="fac-prep-card">
+                        <strong class="color-blue d-block mb-2">幽默感 (Sense of humour)</strong>
+                        <ul class="mb-0 pl-5 color-text-main">
+                            <li>小朋友講笑／扮傻成日俾人糾正，覺得「唔應該」。</li>
+                            <li>點樣回應「無厘頭／傻氣」遊戲，唔熄火又唔失控？</li>
+                            <li>扮壞人／廁所／搞怪題材，大人覺得尷尬就想叫停。</li>
+                            <li>成個班房氣氛太嚴肅，自由遊戲都唔夠輕鬆好玩。</li>
+                            <li>驚家長誤會小朋友「太頑」／「唔正經」，所以大人更想管理。</li>
+                        </ul>
+                    </div>
+
+                    <div class="fac-prep-card">
+                        <strong class="color-blue d-block mb-2">表達喜悅 (Manifest joy)</strong>
+                        <ul class="mb-0 pl-5 color-text-main">
+                            <li>有啲小朋友玩嘅時候好緊張，只揀「安全」嘅活動。</li>
+                            <li>有啲小朋友唔會好誇張表達開心，我點樣判斷佢係唔係享受？</li>
+                            <li>大人自己好緊張嘈／亂／污糟，小朋友好似感受到，結果玩得唔放。</li>
+                            <li>一遇到唔順利就好快放棄，玩唔落去。</li>
+                            <li>太著重「成果／證據／影相」，玩嘅開心感消失。</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==========================================
+             FACILITATOR ACTIVITY 2 CONTENT
+             ========================================== -->
+        <div id="fac2" class="tab-content">
+            <div class="info-grid">
+                <div class="info-card fac-card col-span-full">
+                    <h3><i class="fas fa-boxes"></i> Tech & Materials Checklist</h3>
+                    <div class="grid-auto-fit mt-3">
+                        <div class="fac-prep-checklist-item"><strong>Device per group:</strong> 1 iPad/tablet/phone</div>
+                        <div class="fac-prep-checklist-item"><strong>Internet:</strong> Venue Wi-Fi + portable hotspots</div>
+                        <div class="fac-prep-checklist-item"><strong>Padlet Pack:</strong> Printed QR + short URL + instructions</div>
+                        <div class="fac-prep-checklist-item"><strong>CPS Sheet:</strong> Legend & Prompt Sheet</div>
+                        <div class="fac-prep-checklist-item"><strong>Table cards:</strong> Big district labels</div>
+                        <div class="fac-prep-checklist-item"><strong>Charging:</strong> Extension cords + power banks</div>
+                        <div class="fac-prep-checklist-item"><strong>Stationery:</strong> Marker pens + sticky notes</div>
+                        <div class="fac-prep-warning-item"><strong>Privacy Card:</strong> "No child photos / personal data"</div>
+                    </div>
+                </div>
+                
+                <div class="info-card fac-card">
+                    <h3><i class="fas fa-check-double"></i> Two "Reality Checks"</h3>
+                    <p class="color-text-muted mb-4 mt-0">Apply these during evaluation:</p>
+                    <div class="reality-check-item">
+                        <strong class="reality-check-title">1. Feasibility for families</strong>
+                        <div class="reality-check-desc">Accessible, low-cost, realistic? (time, transport, weather)</div>
+                    </div>
+                    <div class="reality-check-item mb-0">
+                        <strong class="reality-check-title">2. Managed risk & etiquette</strong>
+                        <div class="reality-check-desc">Boundaries that keep kids safe without switching off playfulness?</div>
+                    </div>
+                </div>
+
+                <div class="info-card fac-card">
+                    <h3><i class="fas fa-map"></i> Post-Activity Showcase</h3>
+                    <p class="mt-0 mb-3 color-text-main line-height-15">
+                        Post-event, the KeySteps Team migrates Padlet data to Google Maps to create a permanent, shareable guide.
+                    </p>
+                    <div class="transferable-learning-box">
+                        <strong>Transferable Learning:</strong> Use map in debriefing to discuss how teachers will engage parents and advocate for community play.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', async function() {
+            const roleSelect = document.getElementById('roleSelect');
+            
+            // Load roles from JSON
+            try {
+                const response = await fetch('../data/roles.json');
+                const data = await response.json();
+                
+                roleSelect.innerHTML = '<option value="">Select Your Role</option>';
+                
+                data.roles.forEach(role => {
+                    const option = document.createElement('option');
+                    option.value = role.id;
+                    option.textContent = `${role.name}${role.title ? ` (${role.title})` : ''}`;
+                    roleSelect.appendChild(option);
+                });
+                
+                const savedRole = localStorage.getItem('selectedRole');
+                if (savedRole) {
+                    roleSelect.value = savedRole;
+                }
+            } catch (error) {
+                console.error('Error loading roles:', error);
+            }
+
+            roleSelect.addEventListener('change', function() {
+                localStorage.setItem('selectedRole', this.value);
+            });
+        });
+
+        function switchTab(tabId, btn) {
+            // Hide all contents
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            // Remove active class from all buttons
+            document.querySelectorAll('.tab-btn').forEach(b => {
+                b.classList.remove('active');
+                b.classList.remove('active-facilitator');
+            });
+            
+            // Show selected content
+            document.getElementById(tabId).classList.add('active');
+            
+            // Add active class to clicked button
+            if (tabId.startsWith('fac')) {
+                btn.classList.add('active-facilitator');
+            } else {
+                btn.classList.add('active');
+            }
+        }
+    </script>
+</body>
+</html>

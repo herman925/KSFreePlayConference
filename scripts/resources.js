@@ -219,6 +219,12 @@ class ResourceManager {
         const sortedCategories = this.categories.sort((a, b) => a.order - b.order);
 
         sortedCategories.forEach(category => {
+            const categoryItems = this.items.filter(item => item.categoryid === category.categoryid)
+                .sort((a, b) => a.name.localeCompare(b.name));
+                
+            // Skip empty categories
+            if (categoryItems.length === 0) return;
+
             const categorySection = document.createElement('div');
             categorySection.className = 'category-section';
 
@@ -234,9 +240,6 @@ class ResourceManager {
 
             const itemsList = document.createElement('ul');
             itemsList.className = 'items-list';
-
-            const categoryItems = this.items.filter(item => item.categoryid === category.categoryid)
-                .sort((a, b) => a.name.localeCompare(b.name));
 
             categoryItems.forEach(item => {
                 const itemElement = document.createElement('li');
@@ -288,7 +291,15 @@ class ResourceManager {
             const zoneContent = document.createElement('div');
             zoneContent.className = 'zone-content';
 
+            let boxAdded = false;
+
             boxes.forEach(box => {
+                const boxItems = this.items.filter(item => item.boxid === box.boxid);
+                
+                // Skip empty boxes
+                if (boxItems.length === 0) return;
+
+                boxAdded = true;
                 const boxSection = document.createElement('div');
                 boxSection.className = 'box-section';
 
@@ -305,7 +316,6 @@ class ResourceManager {
                 const itemsList = document.createElement('ul');
                 itemsList.className = 'box-items-list';
 
-                const boxItems = this.items.filter(item => item.boxid === box.boxid);
                 boxItems.forEach(item => {
                     const itemElement = document.createElement('li');
                     itemElement.className = 'box-item';
@@ -325,6 +335,9 @@ class ResourceManager {
                 boxSection.appendChild(boxContent);
                 zoneContent.appendChild(boxSection);
             });
+
+            // Skip zone if no boxes with items were added
+            if (!boxAdded) return;
 
             zoneSection.appendChild(zoneHeader);
             zoneSection.appendChild(zoneContent);

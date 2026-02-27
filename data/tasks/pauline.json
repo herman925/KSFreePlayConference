@@ -48,12 +48,6 @@
                 "time": "12:50-13:15",
                 "text": "Departure",
                 "tag": "Closing/Departure"
-            },
-            {
-                "id": "task-15-2",
-                "time": "Activity 1",
-                "text": "do we need blank name plate (allow them to write down the name which they prefer to be called?",
-                "tag": "Placement of:\n- 10 group site (10 seats per site)\n- Group marker\n- Small box\n- Printouts (leaderboard)\n- Challenge slips (blank)\n- CPS Prompt Sheet\n- Curated challenge slips"
             }
         ]
     }
