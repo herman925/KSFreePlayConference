@@ -59,12 +59,25 @@
         }
 
         .activity-header-card {
-            background: linear-gradient(135deg, #f99d33, #2b3990);
+            background: var(--brand-navy);
             color: white;
-            border-radius: 12px;
-            padding: 24px;
-            margin-bottom: 24px;
-            box-shadow: 0 4px 12px rgba(249, 157, 51, 0.2);
+            border-radius: 16px;
+            padding: 32px;
+            margin-bottom: 32px;
+            box-shadow: 0 8px 24px rgba(43, 57, 144, 0.25);
+            position: relative;
+            overflow: hidden;
+        }
+        .activity-header-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; right: 0; height: 8px;
+            background: linear-gradient(90deg, 
+                var(--brand-orange) 0%, var(--brand-orange) 25%,
+                var(--brand-pink) 25%, var(--brand-pink) 50%,
+                var(--brand-green) 50%, var(--brand-green) 75%,
+                var(--brand-yellow) 75%, var(--brand-yellow) 100%
+            );
         }
         .activity-header-card h2 {
             margin: 0 0 16px 0;
@@ -156,22 +169,29 @@
             height: 100%;
         }
         .action-box.facilitator {
-            background: #fdf6f6;
-            border-left: 3px solid #c5221f;
+            background: #fff0f3;
+            border: 2px solid #fde8ec;
+            border-left: 8px solid var(--brand-pink);
+            border-radius: 12px;
+            padding: 24px;
         }
         .action-box.participant {
-            background: #fff8e1;
-            border-left: 3px solid #f99d33;
+            background: #f0f4ff;
+            border: 2px solid #e6edff;
+            border-left: 8px solid var(--brand-navy);
+            border-radius: 12px;
+            padding: 24px;
         }
         .action-title {
-            font-weight: 600;
-            margin-bottom: 12px;
+            font-weight: 800;
+            font-size: 1.3rem;
+            margin-bottom: 16px;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 12px;
         }
-        .action-box.facilitator .action-title { color: #c5221f; }
-        .action-box.participant .action-title { color: #f99d33; }
+        .action-box.facilitator .action-title { color: var(--brand-pink); }
+        .action-box.participant .action-title { color: var(--brand-navy); }
         
         .action-content ol, .action-content ul {
             margin: 0;
@@ -196,29 +216,41 @@
             margin-right: 8px;
         }
         .material-tag {
-            background: linear-gradient(135deg, #fff8e1, #ffe0b2);
-            color: #2b3990;
-            padding: 6px 14px;
-            border-radius: 20px;
-            font-size: 0.9em;
-            font-weight: 500;
+            background: white;
+            color: var(--brand-orange);
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-size: 1.05rem;
+            font-weight: 700;
             display: inline-flex;
             align-items: center;
-            gap: 8px;
-            border: 2px solid #f99d33;
-            box-shadow: 0 2px 4px rgba(249, 157, 51, 0.15);
-            transition: all 0.2s ease;
+            gap: 10px;
+            border: 2px solid var(--brand-orange);
+            box-shadow: 0 4px 12px rgba(249, 157, 51, 0.15);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
             text-decoration: none;
             cursor: pointer;
         }
         .material-tag:hover {
-            background: linear-gradient(135deg, #ffe0b2, #ffcc80);
-            box-shadow: 0 4px 8px rgba(249, 157, 51, 0.25);
-            transform: translateY(-1px);
+            background: var(--brand-orange);
+            color: white;
+            box-shadow: 0 8px 24px rgba(249, 157, 51, 0.3);
+            transform: translateY(-3px);
         }
         .material-tag i {
-            color: #f99d33;
-            font-size: 0.95em;
+            font-size: 1.2em;
+        }
+        .material-tag:hover i {
+            color: white;
+        }
+        .material-tag:hover {
+            background: var(--brand-pink);
+            box-shadow: 0 6px 12px rgba(240, 78, 105, 0.3);
+            transform: translateY(-2px);
+        }
+        .material-tag i {
+            color: white;
+            font-size: 1.1em;
         }
 
         /* Info Cards */
@@ -269,11 +301,36 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            background: #fff8e1;
-            border: 1px solid #ffe0b2;
-            padding: 16px 24px;
-            border-radius: 8px;
-            margin-bottom: 24px;
+            background: var(--brand-yellow);
+            border: none;
+            padding: 24px 32px;
+            border-radius: 16px;
+            margin-bottom: 32px;
+            box-shadow: 0 8px 24px rgba(244, 208, 54, 0.3);
+        }
+        .padlet-link-banner strong {
+            color: var(--brand-navy);
+            font-size: 1.2rem;
+        }
+        .padlet-link-banner a {
+            background: var(--brand-navy);
+            color: white;
+            text-decoration: none;
+            padding: 12px 28px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(43, 57, 144, 0.3);
+        }
+        .padlet-link-banner a:hover { 
+            background: white; 
+            color: var(--brand-navy);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(43, 57, 144, 0.4);
         }
         .padlet-link-banner a {
             background: #f99d33;
@@ -302,8 +359,8 @@
         .line-height-15 { line-height: 1.5; }
         .color-text-main { color: #3c4043; }
         .color-text-muted { color: #5f6368; }
-        .color-blue { color: #f99d33; }
-        .color-red { color: #c5221f; }
+        .color-blue { color: var(--brand-navy); font-weight: 700; }
+        .color-red { color: var(--brand-pink); font-weight: 700; }
         .fw-500 { font-weight: 500; }
         .text-italic { font-style: italic; }
         .d-block { display: block; }
@@ -358,10 +415,40 @@
                 left: -25px;
             }
             .padlet-link-banner {
-                flex-direction: column;
-                gap: 16px;
-                text-align: center;
-            }
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: var(--brand-yellow);
+            border: none;
+            padding: 24px 32px;
+            border-radius: 16px;
+            margin-bottom: 32px;
+            box-shadow: 0 8px 24px rgba(244, 208, 54, 0.3);
+        }
+        .padlet-link-banner strong {
+            color: var(--brand-navy);
+            font-size: 1.2rem;
+        }
+        .padlet-link-banner a {
+            background: var(--brand-navy);
+            color: white;
+            text-decoration: none;
+            padding: 12px 28px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(43, 57, 144, 0.3);
+        }
+        .padlet-link-banner a:hover { 
+            background: white; 
+            color: var(--brand-navy);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(43, 57, 144, 0.4);
+        }
         }
     </style>
 </head>

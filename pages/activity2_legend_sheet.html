@@ -38,11 +38,27 @@
         }
         
         .sheet-header {
-            background: var(--navy-blue) !important;
-            color: white !important;
-            padding: 24px 32px !important;
+            background: var(--brand-navy);
+            color: white;
+            padding: 32px 40px !important;
             text-align: center;
             position: relative;
+            border-radius: 16px 16px 0 0 !important;
+        }
+        .sheet-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 8px;
+            background: linear-gradient(90deg, 
+                var(--brand-navy) 0%, var(--brand-navy) 20%,
+                var(--brand-orange) 20%, var(--brand-orange) 40%,
+                var(--brand-pink) 40%, var(--brand-pink) 60%,
+                var(--brand-green) 60%, var(--brand-green) 80%,
+                var(--brand-yellow) 80%, var(--brand-yellow) 100%
+            ) !important;
         }
         
         .sheet-header::before {
@@ -82,11 +98,18 @@
         }
         
         .instructions-box {
-            background: #f8f9fa !important;
-            border-radius: 8px !important;
-            padding: 20px !important;
+            background: #f0f4ff !important;
+            border-radius: 12px !important;
+            padding: 24px !important;
             margin-bottom: 24px !important;
-            border-left: 4px solid var(--navy-blue) !important;
+            border-left: 6px solid var(--brand-navy) !important;
+            box-shadow: 0 4px 12px rgba(43, 57, 144, 0.05) !important;
+        }
+        .instructions-box h3 {
+            font-size: 1.2rem !important;
+            color: var(--brand-navy) !important;
+            margin-bottom: 12px !important;
+            font-weight: 800 !important;
         }
         
         .instructions-box h3 {
@@ -212,17 +235,27 @@
         }
         
         .print-btn {
-            display: block;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
             margin: 0 auto 24px !important;
             padding: 14px 32px !important;
-            background: var(--navy-blue) !important;
+            background: var(--brand-orange) !important;
             color: white !important;
             border: none !important;
-            border-radius: 8px !important;
+            border-radius: 30px !important;
             font-family: 'DM Sans', sans-serif !important;
-            font-size: 1rem !important;
-            font-weight: 600 !important;
+            font-size: 1.1rem !important;
+            font-weight: 700 !important;
             cursor: pointer !important;
+            box-shadow: 0 4px 12px rgba(249, 157, 51, 0.3) !important;
+            transition: all 0.3s ease !important;
+            text-decoration: none;
+        }
+        .print-btn:hover {
+            transform: translateY(-3px) !important;
+            box-shadow: 0 8px 24px rgba(249, 157, 51, 0.4) !important;
+            background: var(--brand-pink) !important;
         }
         
         .appendix-box {
@@ -309,7 +342,7 @@
         </header>
         
         <div style="padding: 24px 32px 0 32px;" class="no-print">
-            <a href="../activity_guide_facilitators.docx" download="activity_guide_facilitators.docx" class="print-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:8px;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>下載帶領員工作手冊</a>
+            <a href="../downloads/legend_sheet.docx" download="legend_sheet.docx" class="print-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:8px;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>下載圖例卡 (Word)</a>
         </div>
         
         <div class="content-section">
