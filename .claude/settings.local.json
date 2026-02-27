@@ -12,7 +12,8 @@
       "Bash(mcporter list:*)",
       "Bash(mcporter list-tools:*)",
       "Bash(mcporter call:*)",
-      "WebFetch(domain:pmc.ncbi.nlm.nih.gov)"
+      "WebFetch(domain:pmc.ncbi.nlm.nih.gov)",
+      "Bash(grep:*)"
     ]
   }
 }

@@ -35,7 +35,7 @@
 .stat-value {
     font-size: 1.75rem;
     font-weight: 600;
-    color: #2c3e50;
+    color: #2b3990;
 }
 
 .stat-label {
@@ -48,7 +48,7 @@
 }
 
 .section-subheader h3 {
-    color: #2c3e50;
+    color: #2b3990;
     font-size: 1.2rem;
     display: flex;
     align-items: center;
@@ -56,7 +56,7 @@
 }
 
 .section-subheader h3 i {
-    color: #3498db;
+    color: #f99d33;
 }
 
 .breakdown-table {
@@ -75,7 +75,7 @@
 .breakdown-table th {
     background: #f8f9fa;
     font-weight: 500;
-    color: #2c3e50;
+    color: #2b3990;
 }
 
 .breakdown-table tbody tr:hover {
@@ -100,7 +100,7 @@
 }
 
 .info-card h2 {
-    color: #2c3e50;
+    color: #2b3990;
     font-size: 1.5rem;
     margin-bottom: 20px;
     padding-bottom: 12px;
@@ -111,7 +111,7 @@
 }
 
 .info-card h2 i {
-    color: #3498db;
+    color: #f99d33;
 }
 
 .participant-table {
@@ -131,7 +131,7 @@
 .participant-table th {
     background: #f8f9fa;
     font-weight: 500;
-    color: #2c3e50;
+    color: #2b3990;
     position: sticky;
     top: 0;
     z-index: 10;
@@ -184,7 +184,7 @@
 }
 
 .summary-card .meal-name {
-    color: #2c3e50;
+    color: #2b3990;
     font-size: 0.95rem;
     line-height: 1.4;
 }
@@ -192,7 +192,7 @@
 .summary-card .value {
     font-size: 1.5rem;
     font-weight: 600;
-    color: #2c3e50;
+    color: #2b3990;
     margin-top: 4px;
 }
 
@@ -212,7 +212,7 @@
 }
 
 .meal-category h3 {
-    color: #2c3e50;
+    color: #2b3990;
     font-size: 1.1rem;
     margin-bottom: 12px;
     padding-bottom: 8px;
@@ -228,7 +228,7 @@
 .meal-category li {
     padding: 8px 0;
     border-bottom: 1px solid #e9ecef;
-    color: #2c3e50;
+    color: #2b3990;
 }
 
 .meal-category li:last-child {
@@ -249,7 +249,7 @@
 }
 
 .transport-card h3 {
-    color: #2c3e50;
+    color: #2b3990;
     font-size: 1.1rem;
     margin-bottom: 16px;
     padding-bottom: 8px;
@@ -280,11 +280,11 @@
 }
 
 .transport-location {
-    color: #2c3e50;
+    color: #2b3990;
 }
 
 .transport-count {
-    color: #3498db;
+    color: #f99d33;
     font-weight: 500;
 }
 
@@ -298,7 +298,7 @@
 }
 
 .transport-details h3 {
-    color: #2c3e50;
+    color: #2b3990;
     font-size: 1.1rem;
     margin-bottom: 16px;
     padding-bottom: 8px;
@@ -314,7 +314,7 @@
 .transport-details li {
     padding: 8px 0;
     border-bottom: 1px solid #e9ecef;
-    color: #2c3e50;
+    color: #2b3990;
 }
 
 .transport-details li:last-child {
@@ -366,7 +366,7 @@
 
 .popup-header h3 {
     margin: 0;
-    color: #2c3e50;
+    color: #2b3990;
     font-size: 1.25rem;
 }
 
@@ -381,7 +381,7 @@
 }
 
 .popup-close:hover {
-    color: #2c3e50;
+    color: #2b3990;
 }
 
 .popup-body {
@@ -402,7 +402,7 @@
     background: #f8f9fa;
     padding: 6px 12px;
     border-radius: 16px;
-    color: #2c3e50;
+    color: #2b3990;
     font-size: 0.9rem;
 }
 
@@ -488,7 +488,7 @@
     display: flex;
     align-items: center;
     gap: 8px;
-    color: #2c3e50;
+    color: #2b3990;
     transition: background 0.2s ease;
 }
 
@@ -549,7 +549,7 @@
 }
 
 .export-option i.fa-clipboard-check {
-    color: #3498db;  /* Blue color for attendance checklist */
+    color: #f99d33;  /* Blue color for attendance checklist */
 }
 
 .breakdown-table .highlighted-row {

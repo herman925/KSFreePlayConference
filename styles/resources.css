@@ -18,7 +18,7 @@
 }
 
 .header h2 {
-    color: #2d3748;
+    color: #2b3990;
     font-size: 1.1rem;
     font-weight: 500;
     margin: 0;
@@ -138,7 +138,7 @@
 /* Buttons */
 .add-btn {
     padding: 6px 12px;
-    background: #4299e1;
+    background: #f99d33;
     color: white;
     border: none;
     border-radius: 6px;
@@ -152,7 +152,7 @@
 }
 
 .add-btn:hover {
-    background: #3182ce;
+    background: #e88d22;
 }
 
 /* Inventory Container (Left) */
@@ -253,19 +253,19 @@
 }
 
 .item:hover .item-slot {
-    border-color: #4299e1;
+    border-color: #f99d33;
     background: #ebf8ff;
 }
 
 .item.dragging .item-slot {
     background: #ebf8ff;
-    border-color: #4299e1;
+    border-color: #f99d33;
     box-shadow: 0 2px 4px rgba(66, 153, 225, 0.1);
 }
 
 .item-name {
     font-weight: 500;
-    color: #2d3748;
+    color: #2b3990;
 }
 
 .item-quantity {
@@ -275,7 +275,7 @@
     font-weight: 600;
     min-width: 32px;
     text-align: center;
-    color: #2d3748;
+    color: #2b3990;
     border: 1px solid #cbd5e0;
     font-size: 0.95em;
 }
@@ -347,7 +347,7 @@
 
 .boxes-container h2 {
     margin: 20px;
-    color: #2d3748;
+    color: #2b3990;
     display: flex;
     align-items: center;
     gap: 8px;
@@ -379,7 +379,7 @@
 }
 
 .box:hover {
-    border-color: #4299e1;
+    border-color: #f99d33;
     box-shadow: 0 4px 12px rgba(66, 153, 225, 0.15);
 }
 
@@ -394,7 +394,7 @@
 .box-name {
     flex: 1;
     font-weight: 600;
-    color: #2d3748;
+    color: #2b3990;
     padding: 6px 8px;
     border-radius: 6px;
     transition: all 0.2s ease;
@@ -402,7 +402,7 @@
 
 .box-name[contenteditable="true"] {
     background: white;
-    outline: 2px solid #4299e1;
+    outline: 2px solid #f99d33;
     box-shadow: 0 2px 4px rgba(66, 153, 225, 0.1);
 }
 
@@ -444,9 +444,9 @@
 }
 
 .drop-zone.drag-over {
-    border-color: #4299e1;
+    border-color: #f99d33;
     background: #ebf8ff;
-    color: #4299e1;
+    color: #f99d33;
 }
 
 .drop-zone.drag-over::before {
@@ -473,11 +473,11 @@
 
 .box-item-name {
     flex: 1;
-    color: #2d3748;
+    color: #2b3990;
 }
 
 .box-item-quantity {
-    background: #4299e1;
+    background: #f99d33;
     color: white;
     padding: 2px 8px;
     border-radius: 4px;
@@ -508,7 +508,7 @@
 }
 
 .divider:hover {
-    background: #4299e1;
+    background: #f99d33;
 }
 
 /* Modals */
@@ -557,7 +557,7 @@
 
 .modal h3 {
     margin: 0 0 16px;
-    color: #2d3748;
+    color: #2b3990;
     font-size: 1.25rem;
 }
 
@@ -581,14 +581,14 @@
     -webkit-appearance: none;
     width: 20px;
     height: 20px;
-    background: #4299e1;
+    background: #f99d33;
     border-radius: 50%;
     cursor: pointer;
     transition: background 0.2s;
 }
 
 .quantity-controls input[type="range"]::-webkit-slider-thumb:hover {
-    background: #3182ce;
+    background: #e88d22;
 }
 
 .quantity-controls input[type="number"] {
@@ -626,12 +626,12 @@
 }
 
 .btn-confirm {
-    background: #4299e1;
+    background: #f99d33;
     color: white;
 }
 
 .btn-confirm:hover {
-    background: #3182ce;
+    background: #e88d22;
 }
 
 /* Reset any conflicting styles from main stylesheet */
@@ -861,11 +861,11 @@
 
 /* Root Variables */
 :root {
-    --primary-color: #2c3e50;
-    --secondary-color: #3498db;
+    --primary-color: #2b3990;
+    --secondary-color: #f99d33;
     --background-color: #f5f6fa;
-    --card-hover-color: #e8f4f8;
-    --text-color: #2c3e50;
+    --card-hover-color: #fff8e1;
+    --text-color: #2b3990;
     --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
@@ -942,13 +942,13 @@ header {
 
 .page-header h1 {
     font-size: 2.5rem;
-    color: #2d3748;
+    color: #2b3990;
     margin-bottom: 0.5rem;
 }
 
 .page-header h1 i {
     margin-right: 0.5rem;
-    color: #4299e1;
+    color: #f99d33;
 }
 
 .page-header .subtitle {
