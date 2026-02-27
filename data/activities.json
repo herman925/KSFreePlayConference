@@ -1,0 +1,76 @@
+{
+    "activity-1": {
+        "title": "Structured Problem-Solving on Implementation Barriers",
+        "steps": [
+            {
+                "step": "2",
+                "time": "10 mins",
+                "name": "Generate Challenges",
+                "participant_action": "Discuss and write multiple challenges (one per slip/card). Aim for 5\u20137 concise items",
+                "facilitator_action": "Circulate among groups, asking questions to guide the challenge generation",
+                "materials": "1. Blank challenge slips\n2. Pen"
+            },
+            {
+                "step": "3",
+                "time": "2 mins",
+                "name": "Pass to another table",
+                "participant_action": "1. Seal slips in the envelope/box, pass to another table.",
+                "facilitator_action": "",
+                "materials": "1. Small box"
+            },
+            {
+                "step": "4",
+                "time": "15 mins",
+                "name": "Synthesizing for Sharing",
+                "participant_action": "1. Rank the challenges using a quick rule (e.g., Impact \u00d7 Feasibility or \u201cTop 3 most blocking\u201d)\n2. For some of the top challenges, discuss & propose one solution and concrete steps tied to the CPS Components",
+                "facilitator_action": "1. Encourage groups to think creatively and practically\n2. Remind them to focus on solutions within their control.",
+                "materials": "1. Difficulty Leaderboard\n2. CPS prompt sheet"
+            },
+            {
+                "step": "5",
+                "time": "10 mins",
+                "name": "Whole-Group Share-Back",
+                "participant_action": "Each group's representative shares their key takeaway with the larger group.",
+                "facilitator_action": "To select five groups for stand-up sharing.",
+                "materials": ""
+            }
+        ]
+    },
+    "activity-2": {
+        "title": "Community Resource Mapping",
+        "steps": [
+            {
+                "step": "2.0",
+                "time": "10 mins",
+                "name": "Community Brainstorming & Mapping",
+                "participant_action": "1. Break into district groups\n2. Brainstorm local spaces (parks, playgrounds, libraries, community centres, waterfronts)\n3. Post each location as a new item on the Padlet map.",
+                "facilitator_action": "1. Circulate among groups, challenging them to look beyond standard playgrounds\n2. Prompt to identify unique spaces e.g. rich in natural elements (water, sand, trees); allow for messy, adventurous play, directly addressing the common limitations of urban Hong Kong playscapes.",
+                "materials": ""
+            },
+            {
+                "step": "3.0",
+                "time": "10 mins",
+                "name": "Analysis & Annotation",
+                "participant_action": "1. Using the \"Legend\" sheet, discuss and analyse each mapped location\n2. Add comments to Padlet posts evaluating the space against the principles from the prompt sheet",
+                "facilitator_action": "Prompt groups with targeted questions that reflect common coaching points, such as: \"How could you use storytelling to make this space more relatable?\" or \"How can we empower parents to be play facilitators in this public space instead of just supervisors?",
+                "materials": "1. 'Legend' Sheet"
+            },
+            {
+                "step": "4.0",
+                "time": "3 mins",
+                "name": "Synthesis & Sharing Preparation",
+                "participant_action": "1. Review annotated map\n2. Identify 1-2 key landmarks or surprising insight\n3. Designate one group member to share this key takeaway in under 2 mins.",
+                "facilitator_action": "Announce the transition to the sharing phase. Remind groups to be concise and focus on their most impactful finding.",
+                "materials": ""
+            },
+            {
+                "step": "5.0",
+                "time": "15 mins",
+                "name": "Whole-Group Share-Back",
+                "participant_action": "One representative from each group shares their key takeaway with the entire audience.",
+                "facilitator_action": "Facilitate a brief wrap-up, actively listening for and highlighting common themes (e.g., a shared lack of spaces for water play) or innovative ideas (e.g., using a local waterfront for sensory activities) that emerged across districts.\n\nTo select five groups for stand-up sharing, each group should represent one district",
+                "materials": ""
+            }
+        ]
+    }
+}

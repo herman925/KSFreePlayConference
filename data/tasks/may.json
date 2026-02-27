@@ -1,0 +1,48 @@
+{
+    "tasks": {
+        "event-support": [
+            {
+                "id": "task-0-6",
+                "time": "8:00-8:30",
+                "text": "Setup Audit",
+                "tag": "Preparation"
+            },
+            {
+                "id": "task-1-6",
+                "time": "8:30-9:00",
+                "text": "Welcome & direct",
+                "tag": "Registration"
+            },
+            {
+                "id": "task-2-6",
+                "time": "9:00-9:40",
+                "text": "Introduction",
+                "tag": "Opening & Thematic Framing"
+            },
+            {
+                "id": "task-4-6",
+                "time": "10:10-10:50",
+                "text": "Support to Pauline",
+                "tag": "Activity 1"
+            },
+            {
+                "id": "task-7-6",
+                "time": "11:40-12:20",
+                "text": "Support to Pauline",
+                "tag": "Activity 2"
+            },
+            {
+                "id": "task-9-6",
+                "time": "12:50-13:15",
+                "text": "Process Survey/Online Feedback",
+                "tag": "Closing/Departure"
+            },
+            {
+                "id": "task-10-6",
+                "time": "13:15-13:30",
+                "text": "Final venue check",
+                "tag": "Cleanup"
+            }
+        ]
+    }
+}

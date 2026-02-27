@@ -1,0 +1,9 @@
+zoneid,name,description,order
+staff-equipment,Staff Equipment,,0
+registration-zone,Registration Zone,,1
+activity-1-items,Activity 1 Items,,2
+refreshment-area,Refreshment Area,,3
+activity-2-items,Activity 2 Items,,4
+main-hall,Main Hall,,5
+supplied-on-site,Supplied on site,,6
+carry-on,Carry On,,7

@@ -1,0 +1,60 @@
+{
+    "tasks": {
+        "event-support": [
+            {
+                "id": "task-0-11",
+                "time": "8:00-8:30",
+                "text": "Activity 1 + Poster Setup",
+                "tag": "Preparation"
+            },
+            {
+                "id": "task-1-11",
+                "time": "8:30-9:00",
+                "text": "Welcome & direct",
+                "tag": "Registration"
+            },
+            {
+                "id": "task-2-11",
+                "time": "9:00-9:40",
+                "text": "Call late arrivals",
+                "tag": "Opening & Thematic Framing"
+            },
+            {
+                "id": "task-3-11",
+                "time": "9:40-10:10",
+                "text": "Registration support",
+                "tag": "School Sharing 1"
+            },
+            {
+                "id": "task-4-11",
+                "time": "10:10-10:50",
+                "text": "Document activities",
+                "tag": "Activity 1"
+            },
+            {
+                "id": "task-5-11",
+                "time": "10:50-11:10",
+                "text": "Activity 2 Setup",
+                "tag": "Break + Poster Time"
+            },
+            {
+                "id": "task-7-11",
+                "time": "11:40-12:20",
+                "text": "Support to Serena  (Area 1)",
+                "tag": "Activity 2"
+            },
+            {
+                "id": "task-9-11",
+                "time": "12:50-13:15",
+                "text": "Venue Cleanup",
+                "tag": "Closing/Departure"
+            },
+            {
+                "id": "task-10-11",
+                "time": "13:15-13:30",
+                "text": "Final venue check",
+                "tag": "Cleanup"
+            }
+        ]
+    }
+}

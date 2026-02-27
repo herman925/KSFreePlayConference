@@ -1,0 +1,42 @@
+{
+    "tasks": {
+        "event-support": [
+            {
+                "id": "task-2-10",
+                "time": "9:00-9:40",
+                "text": "Document activities",
+                "tag": "Opening & Thematic Framing"
+            },
+            {
+                "id": "task-4-10",
+                "time": "10:10-10:50",
+                "text": "Support to Sindy (Area 2)",
+                "tag": "Activity 1"
+            },
+            {
+                "id": "task-5-10",
+                "time": "10:50-11:10",
+                "text": "Activity 2 Setup",
+                "tag": "Break + Poster Time"
+            },
+            {
+                "id": "task-7-10",
+                "time": "11:40-12:20",
+                "text": "Support to Sindy (Area 2)",
+                "tag": "Activity 2"
+            },
+            {
+                "id": "task-9-10",
+                "time": "12:50-13:15",
+                "text": "Venue Cleanup",
+                "tag": "Closing/Departure"
+            },
+            {
+                "id": "task-10-10",
+                "time": "13:15-13:30",
+                "text": "Final venue check",
+                "tag": "Cleanup"
+            }
+        ]
+    }
+}

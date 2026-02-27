@@ -1,0 +1,9 @@
+categoryid,name,order
+stationery,Stationery,0
+beverages,Beverages,1
+general,General,2
+signage,Signage,3
+documentation,Documentation,4
+cleaning-supplies,Cleaning Supplies,5
+tech-equipment,Tech Equipment,6
+a-v-equipment,A/V Equipment,7

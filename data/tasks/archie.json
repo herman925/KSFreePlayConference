@@ -1,0 +1,72 @@
+{
+    "tasks": {
+        "event-support": [
+            {
+                "id": "task-0-7",
+                "time": "8:00-8:30",
+                "text": "School Sharnig Setup",
+                "tag": "Preparation"
+            },
+            {
+                "id": "task-1-7",
+                "time": "8:30-9:00",
+                "text": "Welcome & direct",
+                "tag": "Registration"
+            },
+            {
+                "id": "task-2-7",
+                "time": "9:00-9:40",
+                "text": "Activity Support",
+                "tag": "Opening & Thematic Framing"
+            },
+            {
+                "id": "task-3-7",
+                "time": "9:40-10:10",
+                "text": "School Sharing Support",
+                "tag": "School Sharing 1"
+            },
+            {
+                "id": "task-4-7",
+                "time": "10:10-10:50",
+                "text": "Support to Sindy (Area 2)",
+                "tag": "Activity 1"
+            },
+            {
+                "id": "task-5-7",
+                "time": "10:50-11:10",
+                "text": "School Sharnig Setup",
+                "tag": "Break + Poster Time"
+            },
+            {
+                "id": "task-6-7",
+                "time": "11:10-11:40",
+                "text": "School Sharing Support",
+                "tag": "School Sharing 2"
+            },
+            {
+                "id": "task-7-7",
+                "time": "11:40-12:20",
+                "text": "Support to Sindy (Area 2)",
+                "tag": "Activity 2"
+            },
+            {
+                "id": "task-8-7",
+                "time": "12:20-12:50",
+                "text": "Bus coordination",
+                "tag": "Closing Remarks"
+            },
+            {
+                "id": "task-9-7",
+                "time": "12:50-13:15",
+                "text": "Support Departure",
+                "tag": "Closing/Departure"
+            },
+            {
+                "id": "task-10-7",
+                "time": "13:15-13:30",
+                "text": "Final venue check (Return to EdU)",
+                "tag": "Cleanup"
+            }
+        ]
+    }
+}

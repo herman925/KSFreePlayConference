@@ -1,0 +1,74 @@
+itemid,name,totalquantity,remainingquantity,notes,categoryid,boxid,quantityinbox
+main-entrance-banner-0,Main entrance banner,1,0,,signage,box-5,1
+bus-drop-off-point-signs-1,Bus drop-off point signs,4,0,"2 for each stop, best laminated to resist rain",signage,box-5,4
+bus-sign-2,Bus sign,2,0,To place on car windshield,signage,box-5,2
+directional-arrows-to-venue-3,Directional arrows to venue,1,0,,signage,box-5,1
+registration-desk-direction-4,Registration desk direction,1,0,,signage,box-5,1
+blutack-for-securing-signs-5,Blutack for securing signs,1,0,,signage,box-5,1
+easy-stand-keysteps-6,Easy-stand (KeySteps),1,0,,signage,box-5,1
+attendance-list-7,Attendance list,3,0,,documentation,box-1,3
+name-badges-w-1-school-name-2--8,"Name badges w/
+1. School name
+2. Group (1-10)
+3. QR code for Activity Documents/URL",110,0,10 blank as spare,documentation,box-1,110
+staff-info-pack-1-rundown-2-at-9,"Staff info pack
+1. Rundown
+2. Attendance list
+3. Site Layout
+4. Manpower assignment
+5. Group assignment
+6. Contact",7,0,2 as spare,documentation,box-1,7
+post-survey-qr-code-sheet-10,Post-survey  QR code sheet,5,0,,signage,box-5,5
+final-year-survey-qr-code-shee-11,Final year survey QR code sheet,5,0,,signage,box-5,5
+laptop-12,Laptop,2,0,,stationery,box-2,2
+pens-13,Pens,50,0,,stationery,box-2,50
+highlighters-14,Highlighters,10,0,,stationery,box-2,10
+paperclips-15,Paperclips,1,0,,stationery,box-2,1
+rubber-band-16,Rubber band,1,0,,stationery,box-2,1
+clear-tape-17,Clear tape,1,0,,stationery,box-2,1
+scissors-18,Scissors,20,0,,stationery,box-2,20
+registration-desk-sign-19,Registration desk sign,2,0,,signage,box-5,2
+group-signs-1-10-20,Group signs (1-10),1,0,,signage,box-5,1
+restroom-directions-21,Restroom directions,4,0,,signage,box-5,4
+refreshment-area-sign-22,Refreshment area sign,1,0,,signage,box-5,1
+rundown-poster-a3-23,Rundown poster A3,2,0,,signage,box-5,2
+now-recording-sign-24,‘Now Recording’ sign,5,0,,signage,box-5,5
+group-markers-25,Group Markers,10,0,,general,box-13,10
+group-markers-26,Group Markers,10,0,,general,box-14,10
+small-boxes-27,Small boxes,10,0,,general,box-13,10
+difficulty-leaderboard-28,Difficulty Leaderboard,15,0,5 as spare,general,box-13,15
+blank-challenge-slips-29,Blank challenge slips,10,0,10-15 pieces. Pre-cut into smaller pieces & put into a pouch,general,box-13,10
+cps-prompt-sheet-30,CPS Prompt Sheet,20,0,2 per group,general,box-13,20
+curate-challenge-slips-31,Curate challenge slips,1,0,For facilitator use,general,box-13,1
+portable-wifi-hotspot-32,Portable WiFi Hotspot,1,0,In case site WiFi not operable,general,box-14,1
+ipad-33,iPad,10,0,,general,box-14,10
+padlet-pack-34,Padlet Pack,20,0,2 per group,general,box-14,20
+wireless-mic-35,Wireless mic,3,0,See if supplied on site,general,box-9999,3
+laptop-36,Laptop,2,0,1 For playback of PPT and music; 1 for tech support,a-v-equipment,box-4,2
+projector-37,Projector,1,0,See if supplied on site,general,box-9999,1
+projection-screen-38,Projection screen,1,0,See if supplied on site,general,box-9999,1
+hdmi-cables-2-39,HDMI cables (2),2,0,See if supplied on site,general,box-9999,2
+power-strips-40,Power strips,10,0,For extension,tech-equipment,box-3,10
+backup-batteries-aa-aaa-41,"Backup batteries (AA, AAA)",2,0,See if supplied on site,a-v-equipment,box-4,2
+video-recorder-42,Video Recorder,1,0,,a-v-equipment,box-4,1
+camera-43,Camera,1,0,See if mobile phone is ok too,a-v-equipment,box-4,1
+tripod-44,Tripod,2,0,"1 for camcorder, 1 spare",a-v-equipment,box-4,2
+usb-c-cables-1m-45,USB-C cables (1m),2,0,,general,box-14,2
+lightning-cables-1m-46,Lightning cables (1m),2,0,,general,box-14,2
+portable-charger-47,Portable charger,2,0,,tech-equipment,box-3,2
+hand-sanitizer-stations-48,Hand sanitizer stations,2,0,"1 at registration, 1 at refreshment station",cleaning-supplies,box-9,2
+face-masks-49,Face masks,1,0,,cleaning-supplies,box-9,1
+wet-wipes-50,Wet wipes,3,0,,cleaning-supplies,box-9,3
+tissue-boxes-51,Tissue boxes,4,0,,cleaning-supplies,box-9,4
+alcohol-wipes-52,Alcohol wipes,3,0,,cleaning-supplies,box-9,3
+water-dispenser-53,Water dispenser,1,0,See if supplied on site,general,box-9999,1
+paper-cups-54,Paper cups,300,0,,beverages,box-7,300
+tea-bags-assortment-55,Tea bags assortment,2,0,,beverages,box-7,2
+coffee-packets-56,Coffee packets,2,0,,beverages,box-7,2
+stirrer-57,Stirrer,1,0,,beverages,box-7,1
+small-plates-58,Small plates,200,0,See if supplied on site,beverages,box-7,200
+trash-bags-59,Trash bags,5,0,See if supplied on site,beverages,box-7,5
+single-use-table-cloth-60,Single-use table cloth,1,0,See if supplied on site,beverages,box-7,1
+staff-badge-61,Staff badge,1,0,,stationery,box-2,1
+walkie-talkies-62,Walkie-talkies,8,0,,tech-equipment,box-3,8
+certificate-holders-63,Certificate Holders,6,0,1 for school and 1 for each sharer,stationery,box-2,6

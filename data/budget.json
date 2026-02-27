@@ -1,0 +1,32 @@
+[
+    {
+        "date": "2026-03-14",
+        "category": "venue",
+        "description": "Venue - Facility rental & equipment",
+        "amount": 6440.0
+    },
+    {
+        "date": "2026-03-14",
+        "category": "refreshments",
+        "description": "Meals - Lunch service (~$90-100/person)",
+        "amount": 4500.0
+    },
+    {
+        "date": "2026-03-14",
+        "category": "refreshments",
+        "description": "Refreshments - Beverages & snacks",
+        "amount": 3000.0
+    },
+    {
+        "date": "2026-03-14",
+        "category": "transportation",
+        "description": "Transportation - Three-route shuttle service",
+        "amount": 5400.0
+    },
+    {
+        "date": "2026-03-14",
+        "category": "other",
+        "description": "Staff/Helpers - Support staff & facilitators",
+        "amount": 5000.0
+    }
+]

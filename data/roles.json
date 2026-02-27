@@ -1,0 +1,74 @@
+{
+    "roles": [
+        {
+            "id": "pauline",
+            "name": "Pauline",
+            "title": "Programme Lead"
+        },
+        {
+            "id": "serena",
+            "name": "Serena",
+            "title": "Co-Lead"
+        },
+        {
+            "id": "sindy",
+            "name": "Sindy",
+            "title": "Co-Lead"
+        },
+        {
+            "id": "herman",
+            "name": "Herman",
+            "title": "Program Facilitator"
+        },
+        {
+            "id": "may",
+            "name": "May",
+            "title": "Event Coordinator"
+        },
+        {
+            "id": "archie",
+            "name": "Archie",
+            "title": "Program Facilitator"
+        },
+        {
+            "id": "alvin",
+            "name": "Alvin",
+            "title": "Event Staff"
+        },
+        {
+            "id": "winnie",
+            "name": "Winnie",
+            "title": "Event Staff"
+        },
+        {
+            "id": "yasmin",
+            "name": "Yasmin",
+            "title": "Event Staff"
+        },
+        {
+            "id": "vincent",
+            "name": "Vincent",
+            "title": "Event Staff"
+        },
+        {
+            "id": "kaka",
+            "name": "Kaka",
+            "title": "Event Staff"
+        },
+        {
+            "id": "jane",
+            "name": "Jane",
+            "title": "Event Staff"
+        },
+        {
+            "id": "jady",
+            "name": "Jady",
+            "title": "Event Staff"
+        },
+        {
+            "id": "dickson",
+            "name": "Dickson",
+            "title": "Event Staff"
+        }
+    ]
+}
