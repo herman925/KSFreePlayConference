@@ -1,7 +1,7 @@
-# Teacher Well-Being Retreat Dashboard
+# Free Play Case Conference Dashboard
 
 ## Overview
-This dashboard is designed for the KeySteps@JC (Phase Two) Teacher Well-Being Round 1 Retreat, scheduled for January 4, 2025. It serves as a central coordination platform for all team members involved in organizing and running the retreat.
+This dashboard is designed for the KeySteps@JC (Phase Two) Free Play Case Conference. It serves as a central coordination platform for all team members involved in organizing and running the conference.
 
 ## Features
 
@@ -11,46 +11,84 @@ This dashboard is designed for the KeySteps@JC (Phase Two) Teacher Well-Being Ro
 - **Dynamic Content**: Interface adapts based on user role
 
 ### 2. Key Sections
-- **Overview**: Program details, venue information, and quick access to important links
-- **Schedule**: Detailed timeline of the retreat day, including:
-  - Registration (10:00-10:15)
-  - Welcome & Introduction (10:15-10:30)
-  - Various activities throughout the day
-- **Tasks**: Role-specific responsibilities and assignments
-- **Resources**: Access to materials and assets needed for the retreat
+- **Overview**: Conference details, key objectives, and general information
+- **Schedule**: Detailed timeline of the conference day with all sessions and activities
+- **Activity Playbook**: Complete guide for Activity 1 and Activity 2 including:
+  - Step-by-step instructions
+  - Participant and facilitator actions
+  - Materials and resources checklists
+  - CPS (Child Playfulness Signals) framework guidance
+- **Tasks**: Role-specific responsibilities and assignments for all team members
+- **Resources**: Inventory management with zones, boxes, and item tracking
+- **Logistics**: Venue details, transportation info, and contact information
 
-### 3. Program Information
-- **Event**: Teacher Well-Being Round 1 Retreat
+### 3. Conference Information
+- **Event**: Free Play Case Conference
 - **Project**: KeySteps@JC (Phase Two)
 - **Date**: January 4, 2025 (Saturday)
-- **Target Group**: Teachers participating in the well-being program
+- **Venue**: Inno Centre, 72 Tat Chee Avenue, Kowloon Tong, Kowloon
+- **Target Group**: Teachers from five districts (Tuen Mun, Yuen Long, Kowloon City, Sha Tin, Sham Shui Po)
 
 ## Quick Start
-1. Double-click `Start_Dashboard.vbs` to launch the dashboard
-2. A command window will open (this is the server - keep it open)
-3. Your web browser will open automatically to the dashboard
+1. Open `index.html` in your web browser, or
+2. Use a local server to serve the dashboard:
+   ```bash
+   python -m http.server 8000
+   ```
+3. Navigate to `http://localhost:8000` in your browser
 4. Select your role from the dropdown menu
 5. Navigate through different sections using the dashboard cards
 
-## Technical Requirements
-- Python must be installed on your computer
-- If Python is not installed, you can download it from: https://www.python.org/downloads/
-- During Python installation, make sure to check "Add Python to PATH"
+## Key Activities
 
-## Navigation Guide
-- **Overview**: Access program details and key information
-- **Schedule**: View the detailed retreat timeline
-- **Tasks**: Check your role-specific responsibilities
-- **Resources**: Access necessary materials and documents
+### Activity 1: Solving Persistent Implementation Barriers
+- **Duration**: 40 minutes
+- **Objective**: Help teachers identify and solve real difficulties in sustaining Free Play practice
+- **Method**: Group-based challenge exchange using CPS analytical lens
+- **Materials**: Flip charts, challenge slips, CPS prompt sheets
 
-## Troubleshooting
-- If you see an error about Python not being installed, follow the installation instructions above
-- If the browser doesn't open automatically, you can manually visit: http://localhost:8000
-- If you get an error about port 8000 being in use, make sure you don't have another instance of the dashboard running
-- If nothing happens when clicking the VBS file, try right-clicking it and selecting "Run with Script Host"
+### Activity 2: Our Playful Community - Resource Mapping
+- **Duration**: 40 minutes
+- **Objective**: Identify and evaluate local community resources for quality play
+- **Platform**: Padlet collaborative mapping
+- **Output**: District-based community play resource map
+
+## Repository
+Access the source code at: https://github.com/herman925/KSFreePlayConference
+
+## Contact Information
+- **Activities Lead**: Pauline (9122 2847)
+- **Coordination**: May (6206 4525), Herman (9727 8202), Archie (Venue Liaison: yjunle@eduhk.hk)
+- **Support**: All other staff members
+
+## Technical Details
+- Built with HTML, CSS, and vanilla JavaScript
+- Data stored in CSV and JSON files
+- Responsive design for desktop and mobile viewing
+- GitHub Pages compatible for easy deployment
+
+## File Structure
+```
+KSFreePlayConference/
+├── index.html              # Main dashboard
+├── pages/                  # Individual section pages
+│   ├── activity_details.html  # Activity Playbook
+│   ├── schedule.html       # Conference schedule
+│   ├── tasks.html          # Role-based tasks
+│   ├── resources.html      # Inventory management
+│   ├── logistics.html      # Venue and contact info
+│   └── overview.html       # General information
+├── data/                   # Data files
+│   ├── items.csv          # Inventory items
+│   ├── boxes.csv          # Box organization
+│   ├── zones.csv          # Location zones
+│   ├── categories.csv     # Item categories
+│   ├── roles.json         # Staff roles
+│   └── tasks/             # Individual task files
+├── scripts/               # JavaScript files
+├── styles/                # CSS files
+└── README.md             # This file
+```
 
 ## Support
-If you encounter any issues, please contact the system administrator.
-
-## Live Version
-Access the live version of the dashboard at: https://herman925.github.io/KSWellBeingRetreat/
+If you encounter any issues, please contact the coordination team.
