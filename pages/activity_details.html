@@ -196,15 +196,29 @@
             margin-right: 8px;
         }
         .material-tag {
-            background: #f1f3f4;
-            color: #3c4043;
-            padding: 4px 12px;
-            border-radius: 16px;
+            background: linear-gradient(135deg, #e8f0fe, #d2e3fc);
+            color: #1557b0;
+            padding: 6px 14px;
+            border-radius: 20px;
             font-size: 0.9em;
+            font-weight: 500;
             display: inline-flex;
             align-items: center;
-            gap: 6px;
-            border: 1px solid #e8eaed;
+            gap: 8px;
+            border: 2px solid #1a73e8;
+            box-shadow: 0 2px 4px rgba(26, 115, 232, 0.15);
+            transition: all 0.2s ease;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .material-tag:hover {
+            background: linear-gradient(135deg, #d2e3fc, #b8d4ff);
+            box-shadow: 0 4px 8px rgba(26, 115, 232, 0.25);
+            transform: translateY(-1px);
+        }
+        .material-tag i {
+            color: #1a73e8;
+            font-size: 0.95em;
         }
 
         /* Info Cards */
@@ -453,7 +467,7 @@
                     </div>
                     <div class="materials-box">
                         <span class="materials-title">Materials:</span>
-                        <a href="activity1_challenge_slips.html" target="_blank" class="material-tag" style="text-decoration: none; cursor: pointer;"><i class="fas fa-sticky-note"></i> Blank challenge slips</a>
+                        <a href="activity1_challenge_slips.html" target="_blank" class="material-tag"><i class="fas fa-sticky-note"></i> Blank challenge slips</a>
                         <span class="material-tag"><i class="fas fa-pen"></i> Pens</span>
                     </div>
                 </div>
@@ -506,8 +520,8 @@
                     </div>
                     <div class="materials-box">
                         <span class="materials-title">Materials:</span>
-                        <a href="activity1_leaderboard.html" target="_blank" class="material-tag" style="text-decoration: none; cursor: pointer;"><i class="fas fa-list-ol"></i> Difficulty Leaderboard</a>
-                        <a href="activity1_cps_prompt_sheet.html" target="_blank" class="material-tag" style="text-decoration: none; cursor: pointer;"><i class="fas fa-file-alt"></i> CPS prompt sheet</a>
+                        <a href="activity1_leaderboard.html" target="_blank" class="material-tag"><i class="fas fa-list-ol"></i> Difficulty Leaderboard</a>
+                        <a href="activity1_cps_prompt_sheet.html" target="_blank" class="material-tag"><i class="fas fa-file-alt"></i> CPS prompt sheet</a>
                     </div>
                 </div>
 
@@ -655,7 +669,7 @@
                     </div>
                     <div class="materials-box">
                         <span class="materials-title">Materials:</span>
-                        <a href="activity2_legend_sheet.html" target="_blank" class="material-tag" style="text-decoration: none; cursor: pointer;"><i class="fas fa-map"></i> Padlet Posting Guidelines & Legend Sheet</a>
+                        <a href="activity2_legend_sheet.html" target="_blank" class="material-tag"><i class="fas fa-map"></i> Padlet Posting Guidelines & Legend Sheet</a>
                     </div>
                 </div>
 
