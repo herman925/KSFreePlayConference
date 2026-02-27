@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>活動 1 - 困難排行榜（空白模板）</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            /* Brand Colors from Pantone guidelines */
+            --navy-blue: #2b3990;
+            --orange: #f99d33;
+            --pink-red: #f04e69;
+            --lime-green: #8dbe50;
+            --yellow: #f4d036;
+        }
+        
+        body {
+            font-family: 'DM Sans', sans-serif !important;
+            background: #e0e0e0 !important;
+            padding: 20px !important;
+            min-height: 100vh !important;
+        }
+        
+        .page-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white !important;
+            border-radius: 16px !important;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.15) !important;
+            overflow: hidden;
+        }
+        
+        .leaderboard-header {
+            background: var(--navy-blue) !important;
+            color: white !important;
+            padding: 24px 32px !important;
+            text-align: center;
+            position: relative;
+        }
+        
+        .leaderboard-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, 
+                var(--navy-blue) 0%, 
+                var(--navy-blue) 20%,
+                var(--orange) 20%, 
+                var(--orange) 40%,
+                var(--pink-red) 40%, 
+                var(--pink-red) 60%,
+                var(--lime-green) 60%, 
+                var(--lime-green) 80%,
+                var(--yellow) 80%, 
+                var(--yellow) 100%
+            ) !important;
+        }
+        
+        .leaderboard-header h1 {
+            font-size: 1.75rem !important;
+            font-weight: 700 !important;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+        
+        .leaderboard-header p {
+            font-size: 0.9rem !important;
+            opacity: 0.85 !important;
+            margin-top: 6px !important;
+        }
+        
+        .leaderboard-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            padding: 24px !important;
+        }
+        
+        .rank-slot {
+            display: flex;
+            align-items: stretch;
+            gap: 16px;
+            padding: 0 !important;
+            background: transparent !important;
+            border: none !important;
+        }
+        
+        .rank-number-container {
+            width: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .rank-number {
+            width: 48px;
+            height: 48px;
+            border-radius: 50% !important;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem !important;
+            font-weight: 700 !important;
+            color: white !important;
+            flex-shrink: 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15) !important;
+        }
+        
+        /* Medal colors for top 3 */
+        .rank-slot:nth-child(1) .rank-number { background: linear-gradient(135deg, #FFD700, #FFA500) !important; }
+        .rank-slot:nth-child(2) .rank-number { background: linear-gradient(135deg, #C0C0C0, #A0A0A0) !important; }
+        .rank-slot:nth-child(3) .rank-number { background: linear-gradient(135deg, #CD7F32, #B87333) !important; }
+        
+        /* Brand colors for remaining */
+        .rank-slot:nth-child(4) .rank-number { background: var(--navy-blue) !important; }
+        .rank-slot:nth-child(5) .rank-number { background: var(--orange) !important; }
+        .rank-slot:nth-child(6) .rank-number { background: var(--pink-red) !important; }
+        .rank-slot:nth-child(7) .rank-number { background: var(--lime-green) !important; }
+        .rank-slot:nth-child(8) .rank-number { background: var(--yellow) !important; color: #333 !important; }
+        .rank-slot:nth-child(9) .rank-number { background: var(--navy-blue) !important; }
+        .rank-slot:nth-child(10) .rank-number { background: var(--orange) !important; }
+        
+        .slot-area {
+            flex: 1;
+            border: 2px dashed #ccc !important;
+            border-radius: 12px !important;
+            min-height: 180px !important; /* Matches challenge slip height */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #fdfdfd !important;
+            position: relative;
+        }
+        
+        /* Special borders for top 3 to match slips styling */
+        .rank-slot:nth-child(1) .slot-area { border: 2px dashed #FFD700 !important; background: linear-gradient(135deg, #fffdf5, #fffef0) !important; border-left: 8px solid #FFD700 !important; }
+        .rank-slot:nth-child(2) .slot-area { border: 2px dashed #C0C0C0 !important; background: linear-gradient(135deg, #fafafa, #f5f5f5) !important; border-left: 8px solid #C0C0C0 !important; }
+        .rank-slot:nth-child(3) .slot-area { border: 2px dashed #CD7F32 !important; background: linear-gradient(135deg, #fdf8f3, #faf5ed) !important; border-left: 8px solid #CD7F32 !important; }
+        
+        /* Brand color borders for the rest to simulate slip placement */
+        .rank-slot:nth-child(4) .slot-area { border-left: 8px solid var(--navy-blue) !important; }
+        .rank-slot:nth-child(5) .slot-area { border-left: 8px solid var(--orange) !important; }
+        .rank-slot:nth-child(6) .slot-area { border-left: 8px solid var(--pink-red) !important; }
+        .rank-slot:nth-child(7) .slot-area { border-left: 8px solid var(--lime-green) !important; }
+        .rank-slot:nth-child(8) .slot-area { border-left: 8px solid var(--yellow) !important; }
+        .rank-slot:nth-child(9) .slot-area { border-left: 8px solid var(--navy-blue) !important; }
+        .rank-slot:nth-child(10) .slot-area { border-left: 8px solid var(--orange) !important; }
+        
+        .slot-placeholder {
+            font-size: 0.8rem !important;
+            color: #bbb !important;
+            font-style: italic !important;
+            text-align: center;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 16px 32px !important;
+            background: #f8f9fa !important;
+            border-top: 1px solid #e8eaed !important;
+            font-size: 0.75rem !important;
+            color: #888 !important;
+        }
+        
+        .print-btn {
+            display: block;
+            margin: 0 auto 20px !important;
+            padding: 12px 28px !important;
+            background: var(--navy-blue) !important;
+            color: white !important;
+            border: none !important;
+            border-radius: 8px !important;
+            font-family: 'DM Sans', sans-serif !important;
+            font-size: 0.9rem !important;
+            font-weight: 600 !important;
+            cursor: pointer !important;
+        }
+        
+        /* Print styles */
+        @media print {
+            @page {
+                size: A3 portrait;
+                margin: 15mm;
+            }
+            
+            body {
+                background: white !important;
+                padding: 0 !important;
+            }
+            
+            .page-container {
+                box-shadow: none !important;
+                max-width: 100%;
+                border-radius: 0 !important;
+            }
+            
+            .no-print {
+                display: none !important;
+            }
+            
+            .rank-slot {
+                break-inside: avoid;
+            }
+            
+            .slot-area {
+                border: 2px dashed #ccc !important;
+            }
+            
+            .rank-slot:nth-child(1) .slot-area { border: 2px dashed #FFD700 !important; }
+            .rank-slot:nth-child(2) .slot-area { border: 2px dashed #C0C0C0 !important; }
+            .rank-slot:nth-child(3) .slot-area { border: 2px dashed #CD7F32 !important; }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-container">
+        <header class="leaderboard-header">
+            <h1>
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path>
+                    <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path>
+                    <path d="M4 22h16"></path>
+                    <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path>
+                    <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path>
+                    <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path>
+                </svg>
+                困難排行榜
+            </h1>
+            <p>活動 1：解決持續性實施障礙 | 將挑戰卡貼在此處</p>
+        </header>
+        
+        <button class="print-btn no-print" onclick="window.print()">
+            🖨️ 打印排行榜
+        </button>
+        
+        <div class="leaderboard-grid">
+            <div class="rank-slot">
+                <div class="rank-number-container"><div class="rank-number">1</div></div>
+                <div class="slot-area">
+                    <span class="slot-placeholder">將最高優先次序卡貼在此處</span>
+                </div>
+            </div>
+            
+            <div class="rank-slot">
+                <div class="rank-number-container"><div class="rank-number">2</div></div>
+                <div class="slot-area">
+                    <span class="slot-placeholder">將第 2 優先次序卡貼在此處</span>
+                </div>
+            </div>
+            
+            <div class="rank-slot">
+                <div class="rank-number-container"><div class="rank-number">3</div></div>
+                <div class="slot-area">
+                    <span class="slot-placeholder">將第 3 優先次序卡貼在此處</span>
+                </div>
+            </div>
+            
+            <div class="rank-slot">
+                <div class="rank-number-container"><div class="rank-number">4</div></div>
+                <div class="slot-area">
+                    <span class="slot-placeholder">將第 4 優先次序卡貼在此處</span>
+                </div>
+            </div>
+            
+            <div class="rank-slot">
+                <div class="rank-number-container"><div class="rank-number">5</div></div>
+                <div class="slot-area">
+                    <span class="slot-placeholder">將第 5 優先次序卡貼在此處</span>
+                </div>
+            </div>
+            
+            <div class="rank-slot">
+                <div class="rank-number-container"><div class="rank-number">6</div></div>
+                <div class="slot-area">
+                    <span class="slot-placeholder">將第 6 優先次序卡貼在此處</span>
+                </div>
+            </div>
+            
+            <div class="rank-slot">
+                <div class="rank-number-container"><div class="rank-number">7</div></div>
+                <div class="slot-area">
+                    <span class="slot-placeholder">將第 7 優先次序卡貼在此處</span>
+                </div>
+            </div>
+            
+            <div class="rank-slot">
+                <div class="rank-number-container"><div class="rank-number">8</div></div>
+                <div class="slot-area">
+                    <span class="slot-placeholder">將第 8 優先次序卡貼在此處</span>
+                </div>
+            </div>
+            
+            <div class="rank-slot">
+                <div class="rank-number-container"><div class="rank-number">9</div></div>
+                <div class="slot-area">
+                    <span class="slot-placeholder">將第 9 優先次序卡貼在此處</span>
+                </div>
+            </div>
+            
+            <div class="rank-slot">
+                <div class="rank-number-container"><div class="rank-number">10</div></div>
+                <div class="slot-area">
+                    <span class="slot-placeholder">將第 10 優先次序卡貼在此處</span>
+                </div>
+            </div>
+        </div>
+        
+        <footer class="footer">
+            <strong>自由遊戲個案研討會</strong> | 活動 1 材料 | 剪下挑戰卡並貼在此板上
+        </footer>
+    </div>
+</body>
+</html>

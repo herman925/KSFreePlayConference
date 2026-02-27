@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node:*)",
+      "Bash(npm install:*)",
+      "Bash(npm root:*)",
+      "Bash(python:*)",
+      "Bash(ls:*)",
+      "Bash(python3:*)",
+      "Bash(cp:*)",
+      "Bash(pandoc:*)",
+      "Bash(mcporter list:*)",
+      "Bash(mcporter list-tools:*)",
+      "Bash(mcporter call:*)",
+      "WebFetch(domain:pmc.ncbi.nlm.nih.gov)"
+    ]
+  }
+}

@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>活動 1 - 挑戰卡（大張版）</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            /* Brand Colors from Pantone guidelines */
+            --navy-blue: #2b3990;
+            --orange: #f99d33;
+            --pink-red: #f04e69;
+            --lime-green: #8dbe50;
+            --yellow: #f4d036;
+            --dark-text: #1a1a2e;
+            --light-bg: #fafafa;
+        }
+        
+        body {
+            font-family: 'DM Sans', sans-serif !important;
+            background: #e8e8e8 !important;
+            padding: 20px !important;
+            min-height: 100vh !important;
+        }
+        
+        .page-header {
+            text-align: center;
+            margin-bottom: 24px !important;
+            padding: 20px !important;
+            background: white !important;
+            border-radius: 12px !important;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08) !important;
+            border-left: 6px solid var(--navy-blue) !important;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .page-header h1 {
+            font-size: 1.5rem !important;
+            font-weight: 700 !important;
+            color: var(--navy-blue) !important;
+            margin-bottom: 4px !important;
+        }
+        
+        .page-header p {
+            font-size: 0.9rem !important;
+            color: #666 !important;
+            font-weight: 500 !important;
+        }
+        
+        /* Single column layout - one slip per row */
+        .slips-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .challenge-slip {
+            background: white !important;
+            border-radius: 12px !important;
+            padding: 0 !important;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1) !important;
+            border: 2px solid transparent !important;
+            transition: all 0.2s ease;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        /* Color-coded left border */
+        .challenge-slip:nth-child(5n+1) { border-left: 8px solid var(--navy-blue) !important; }
+        .challenge-slip:nth-child(5n+2) { border-left: 8px solid var(--orange) !important; }
+        .challenge-slip:nth-child(5n+3) { border-left: 8px solid var(--pink-red) !important; }
+        .challenge-slip:nth-child(5n+4) { border-left: 8px solid var(--lime-green) !important; }
+        .challenge-slip:nth-child(5n+5) { border-left: 8px solid var(--yellow) !important; }
+        
+        .slip-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 20px !important;
+            background: #f8f9fa !important;
+            border-bottom: 1px dashed #ddd !important;
+        }
+        
+        .slip-number {
+            font-size: 0.8rem !important;
+            font-weight: 700 !important;
+            color: #888 !important;
+            text-transform: uppercase !important;
+            letter-spacing: 0.5px !important;
+        }
+        
+        .slip-icon {
+            font-size: 1.2rem !important;
+        }
+        
+        .challenge-slip:nth-child(5n+1) .slip-icon { color: var(--navy-blue) !important; }
+        .challenge-slip:nth-child(5n+2) .slip-icon { color: var(--orange) !important; }
+        .challenge-slip:nth-child(5n+3) .slip-icon { color: var(--pink-red) !important; }
+        .challenge-slip:nth-child(5n+4) .slip-icon { color: var(--lime-green) !important; }
+        .challenge-slip:nth-child(5n+5) .slip-icon { color: var(--yellow) !important; }
+        
+        .slip-content {
+            flex: 1;
+            padding: 24px 20px 32px 20px !important;
+            display: flex;
+            flex-direction: column;
+            min-height: 140px !important;
+        }
+        
+        .slip-label {
+            font-size: 0.85rem !important;
+            font-weight: 600 !important;
+            color: #666 !important;
+            margin-bottom: 24px !important;
+        }
+        
+        .write-lines {
+            display: flex;
+            flex-direction: column;
+            gap: 40px; /* Space between lines */
+            width: 100%;
+        }
+        
+        .write-line {
+            border-bottom: 2px solid #ccc !important;
+            width: 100%;
+        }
+        
+        .slip-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 20px !important;
+            background: #fafafa !important;
+            border-top: 1px solid #f0f0f0 !important;
+            font-size: 0.7rem !important;
+            color: #aaa !important;
+        }
+        
+        .brand-mark {
+            font-weight: 700 !important;
+        }
+        
+        .cps-hint {
+            font-style: italic !important;
+        }
+        
+        /* Print styles */
+        @media print {
+            body {
+                background: white !important;
+                padding: 0 !important;
+            }
+            
+            .page-header {
+                box-shadow: none !important;
+                border: 2px solid var(--navy-blue) !important;
+                margin-bottom: 16px !important;
+            }
+            
+            .challenge-slip {
+                box-shadow: none !important;
+                border: 2px solid #ddd !important;
+                break-inside: avoid;
+            }
+            
+            .no-print {
+                display: none !important;
+            }
+        }
+        
+        /* Instructions panel */
+        .instructions {
+            background: white !important;
+            border-radius: 12px !important;
+            padding: 24px !important;
+            margin-bottom: 24px !important;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08) !important;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .instructions h2 {
+            font-size: 1rem !important;
+            font-weight: 700 !important;
+            color: var(--navy-blue) !important;
+            margin-bottom: 16px !important;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .instructions ul {
+            margin: 0 !important;
+            padding-left: 18px !important;
+            color: #555 !important;
+            font-size: 0.85rem !important;
+            line-height: 1.7 !important;
+        }
+        
+        .instructions li {
+            margin-bottom: 6px !important;
+        }
+        
+        .print-btn {
+            display: block;
+            margin: 24px auto 0 !important;
+            padding: 14px 32px !important;
+            background: var(--navy-blue) !important;
+            color: white !important;
+            border: none !important;
+            border-radius: 8px !important;
+            font-family: 'DM Sans', sans-serif !important;
+            font-size: 1rem !important;
+            font-weight: 600 !important;
+            cursor: pointer !important;
+            transition: all 0.2s ease;
+        }
+        
+        .print-btn:hover {
+            background: #1e2870 !important;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(43,57,144,0.3) !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="page-header">
+        <h1>活動 1：挑戰卡</h1>
+        <p>解決持續性實施障礙 | 自由遊戲個案研討會</p>
+    </div>
+    
+    <div class="instructions no-print">
+        <h2>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2b3990" stroke-width="2" style="vertical-align: middle;">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+            </svg>
+            參加者指引
+        </h2>
+        <ul>
+            <li>每張卡寫<strong>一個挑戰</strong></li>
+            <li>具體描述你面對的困難</li>
+            <li>每組寫 5-7 個挑戰</li>
+            <li>專注於<em>持續性</em>的實施障礙</li>
+        </ul>
+        <button class="print-btn" onclick="window.print()">
+            🖨️ 打印挑戰卡
+        </button>
+    </div>
+    
+    <div class="slips-container">
+        <!-- 6 blank challenge slips -->
+        <div class="challenge-slip">
+            <div class="slip-header">
+                <span class="slip-number">挑戰卡 #1</span>
+                <span class="slip-icon">✏️</span>
+            </div>
+            <div class="slip-content">
+                <span class="slip-label">寫下一個持續性實施障礙：</span>
+                <div class="write-lines">
+                    <div class="write-line"></div>
+                    <div class="write-line"></div>
+                </div>
+            </div>
+            <div class="slip-footer">
+                <span class="brand-mark">自由遊戲個案研討會</span>
+                <span class="cps-hint">稍後將使用 CPS 向度分析</span>
+            </div>
+        </div>
+        
+        <div class="challenge-slip">
+            <div class="slip-header">
+                <span class="slip-number">挑戰卡 #2</span>
+                <span class="slip-icon">✏️</span>
+            </div>
+            <div class="slip-content">
+                <span class="slip-label">寫下一個持續性實施障礙：</span>
+                <div class="write-lines">
+                    <div class="write-line"></div>
+                    <div class="write-line"></div>
+                </div>
+            </div>
+            <div class="slip-footer">
+                <span class="brand-mark">自由遊戲個案研討會</span>
+                <span class="cps-hint">稍後將使用 CPS 向度分析</span>
+            </div>
+        </div>
+        
+        <div class="challenge-slip">
+            <div class="slip-header">
+                <span class="slip-number">挑戰卡 #3</span>
+                <span class="slip-icon">✏️</span>
+            </div>
+            <div class="slip-content">
+                <span class="slip-label">寫下一個持續性實施障礙：</span>
+                <div class="write-lines">
+                    <div class="write-line"></div>
+                    <div class="write-line"></div>
+                </div>
+            </div>
+            <div class="slip-footer">
+                <span class="brand-mark">自由遊戲個案研討會</span>
+                <span class="cps-hint">稍後將使用 CPS 向度分析</span>
+            </div>
+        </div>
+        
+        <div class="challenge-slip">
+            <div class="slip-header">
+                <span class="slip-number">挑戰卡 #4</span>
+                <span class="slip-icon">✏️</span>
+            </div>
+            <div class="slip-content">
+                <span class="slip-label">寫下一個持續性實施障礙：</span>
+                <div class="write-lines">
+                    <div class="write-line"></div>
+                    <div class="write-line"></div>
+                </div>
+            </div>
+            <div class="slip-footer">
+                <span class="brand-mark">自由遊戲個案研討會</span>
+                <span class="cps-hint">稍後將使用 CPS 向度分析</span>
+            </div>
+        </div>
+        
+        <div class="challenge-slip">
+            <div class="slip-header">
+                <span class="slip-number">挑戰卡 #5</span>
+                <span class="slip-icon">✏️</span>
+            </div>
+            <div class="slip-content">
+                <span class="slip-label">寫下一個持續性實施障礙：</span>
+                <div class="write-lines">
+                    <div class="write-line"></div>
+                    <div class="write-line"></div>
+                </div>
+            </div>
+            <div class="slip-footer">
+                <span class="brand-mark">自由遊戲個案研討會</span>
+                <span class="cps-hint">稍後將使用 CPS 向度分析</span>
+            </div>
+        </div>
+        
+        <div class="challenge-slip">
+            <div class="slip-header">
+                <span class="slip-number">挑戰卡 #6</span>
+                <span class="slip-icon">✏️</span>
+            </div>
+            <div class="slip-content">
+                <span class="slip-label">寫下一個持續性實施障礙：</span>
+                <div class="write-lines">
+                    <div class="write-line"></div>
+                    <div class="write-line"></div>
+                </div>
+            </div>
+            <div class="slip-footer">
+                <span class="brand-mark">自由遊戲個案研討會</span>
+                <span class="cps-hint">稍後將使用 CPS 向度分析</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

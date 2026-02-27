@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>活動 1 - 預設挑戰卡 (Sample Challenges Slip Bank)</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            /* Brand Colors from Pantone guidelines */
+            --navy-blue: #2b3990;
+            --orange: #f99d33;
+            --pink-red: #f04e69;
+            --lime-green: #8dbe50;
+            --yellow: #f4d036;
+            --dark-text: #1a1a2e;
+            --light-bg: #fafafa;
+        }
+        
+        body {
+            font-family: 'DM Sans', sans-serif !important;
+            background: #e8e8e8 !important;
+            padding: 20px !important;
+            min-height: 100vh !important;
+        }
+        
+        .page-header {
+            text-align: center;
+            margin-bottom: 24px !important;
+            padding: 20px !important;
+            background: white !important;
+            border-radius: 12px !important;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08) !important;
+            border-left: 6px solid var(--navy-blue) !important;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .page-header h1 {
+            font-size: 1.5rem !important;
+            font-weight: 700 !important;
+            color: var(--navy-blue) !important;
+            margin-bottom: 4px !important;
+        }
+        
+        .page-header p {
+            font-size: 0.9rem !important;
+            color: #666 !important;
+            font-weight: 500 !important;
+        }
+        
+        /* Single column layout - one slip per row */
+        .slips-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            page-break-inside: auto;
+        }
+        
+        .challenge-slip {
+            background: white !important;
+            border-radius: 12px !important;
+            padding: 0 !important;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1) !important;
+            border: 2px solid transparent !important;
+            transition: all 0.2s ease;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            page-break-inside: avoid;
+        }
+        
+        /* Rotating colors to match blank slips format */
+        .challenge-slip:nth-child(5n+1) { border-left: 8px solid var(--navy-blue) !important; }
+        .challenge-slip:nth-child(5n+2) { border-left: 8px solid var(--orange) !important; }
+        .challenge-slip:nth-child(5n+3) { border-left: 8px solid var(--pink-red) !important; }
+        .challenge-slip:nth-child(5n+4) { border-left: 8px solid var(--lime-green) !important; }
+        .challenge-slip:nth-child(5n+5) { border-left: 8px solid var(--yellow) !important; }
+        
+        .slip-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 20px !important;
+            background: #f8f9fa !important;
+            border-bottom: 1px dashed #ddd !important;
+        }
+        
+        .slip-number {
+            font-size: 0.8rem !important;
+            font-weight: 700 !important;
+            color: #888 !important;
+            text-transform: uppercase !important;
+            letter-spacing: 0.5px !important;
+        }
+        
+        .slip-icon {
+            font-size: 1.2rem !important;
+        }
+        
+        .challenge-slip:nth-child(5n+1) .slip-icon { color: var(--navy-blue) !important; }
+        .challenge-slip:nth-child(5n+2) .slip-icon { color: var(--orange) !important; }
+        .challenge-slip:nth-child(5n+3) .slip-icon { color: var(--pink-red) !important; }
+        .challenge-slip:nth-child(5n+4) .slip-icon { color: var(--lime-green) !important; }
+        .challenge-slip:nth-child(5n+5) .slip-icon { color: var(--yellow) !important; }
+        
+        .slip-content {
+            flex: 1;
+            padding: 24px 20px !important;
+            display: flex;
+            flex-direction: column;
+            min-height: 140px !important;
+        }
+        
+        .slip-label {
+            font-size: 0.85rem !important;
+            font-weight: 600 !important;
+            color: #666 !important;
+            margin-bottom: 24px !important;
+        }
+        
+        .challenge-text {
+            font-size: 1.1rem !important;
+            color: #333 !important;
+            font-weight: 500 !important;
+            line-height: 1.6 !important;
+            border-bottom: 2px solid #ccc !important;
+            padding-bottom: 8px !important;
+            margin-bottom: 40px !important;
+        }
+        
+        /* Empty second line */
+        .write-line {
+            border-bottom: 2px solid #ccc !important;
+            width: 100%;
+        }
+        
+        .slip-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 20px !important;
+            background: #fafafa !important;
+            border-top: 1px solid #f0f0f0 !important;
+            font-size: 0.7rem !important;
+            color: #aaa !important;
+        }
+        
+        .brand-mark {
+            font-weight: 700 !important;
+        }
+        
+        .cps-hint {
+            font-style: italic !important;
+        }
+        
+        /* Print styles */
+        @media print {
+            body {
+                background: white !important;
+                padding: 0 !important;
+            }
+            
+            .page-header {
+                box-shadow: none !important;
+                border: 2px solid var(--navy-blue) !important;
+                margin-bottom: 16px !important;
+            }
+            
+            .challenge-slip {
+                box-shadow: none !important;
+                border: 2px solid #ddd !important;
+                break-inside: avoid;
+            }
+            
+            .no-print {
+                display: none !important;
+            }
+            
+            .page-break-after {
+                page-break-after: always;
+            }
+        }
+        
+        /* Instructions panel */
+        .instructions {
+            background: white !important;
+            border-radius: 12px !important;
+            padding: 24px !important;
+            margin-bottom: 24px !important;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08) !important;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .instructions h2 {
+            font-size: 1rem !important;
+            font-weight: 700 !important;
+            color: var(--navy-blue) !important;
+            margin-bottom: 12px !important;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .instructions p {
+            color: #555 !important;
+            font-size: 0.9rem !important;
+            line-height: 1.6 !important;
+            margin-bottom: 16px !important;
+        }
+        
+        .print-btn {
+            display: block;
+            margin: 0 auto !important;
+            padding: 14px 32px !important;
+            background: var(--navy-blue) !important;
+            color: white !important;
+            border: none !important;
+            border-radius: 8px !important;
+            font-family: 'DM Sans', sans-serif !important;
+            font-size: 1rem !important;
+            font-weight: 600 !important;
+            cursor: pointer !important;
+            transition: all 0.2s ease;
+        }
+        
+        .print-btn:hover {
+            background: #1e2870 !important;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(43,57,144,0.3) !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="page-header">
+        <h1>預設挑戰卡 (Sample Challenges Bank)</h1>
+        <p>解決持續性實施障礙 | 自由遊戲個案研討會</p>
+    </div>
+    
+    <div class="instructions no-print">
+        <h2>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2b3990" stroke-width="2" style="vertical-align: middle;">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+            </svg>
+            導師指引 (Facilitator Instructions)
+        </h2>
+        <p>這些是預先印好的挑戰卡，外觀與空白挑戰卡完全相同，沒有標示 CPS 分類。當有小組想不出挑戰，或者寫得太模糊時，導師可以混入這些卡片。參加者仍需要自行使用 CPS 向度去分析這些預設挑戰。</p>
+        <button class="print-btn" onclick="window.print()">
+            🖨️ 打印所有預設挑戰卡
+        </button>
+    </div>
+    
+    <div class="slips-container">
+        <!-- Social Spontaneity (Without labels) -->
+        <div class="challenge-slip">
+            <div class="slip-header">
+                <span class="slip-number">挑戰卡</span>
+                <span class="slip-icon">✏️</span>
+            </div>
+            <div class="slip-content">
+                <span class="slip-label">寫下一個持續性實施障礙：</span>
+                <div class="challenge-text">小朋友多數各自玩，明明有「多人玩」嘅區角都好少主動加入。</div>
+                <div class="write-line"></div>
+            </div>
+            <div class="slip-footer">
+                <span class="brand-mark">自由遊戲個案研討會</span>
+                <span class="cps-hint">稍後將使用 CPS 向度分析</span>
+            </div>
+        </div>
+        
+        <div class="challenge-slip">
+            <div class="slip-header">
+                <span class="slip-number">挑戰卡</span>
+                <span class="slip-icon">✏️</span>
+            </div>
+            <div class="slip-content">
+                <span class="slip-label">寫下一個持續性實施障礙：</span>
+                <div class="challenge-text">點樣幫小朋友「入場」加入同伴遊戲，但又唔係我幫佢分配角色／安排劇本？</div>
+                <div class="write-line"></div>
+            </div>
+            <div class="slip-footer">
+                <span class="brand-mark">自由遊戲個案研討會</span>
+                <span class="cps-hint">稍後將使用 CPS 向度分析</span>
+            </div>
+        </div>
+        
+        <div class="challenge-slip">
+            <div class="slip-header">
+                <span class="slip-number">挑戰卡</span>
+                <span class="slip-icon">✏️</span>
+            </div>
+            <div class="slip-content">
+                <span class="slip-label">寫下一個持續性實施障礙：</span>
+                <div class="challenge-text">成日係某幾個小朋友霸住最受歡迎嗰區，其他人就游離唔知做咩。</div>
+                <div class="write-line"></div>
+            </div>
+            <div class="slip-footer">
+                <span class="brand-mark">自由遊戲個案研討會</span>
+                <span class="cps-hint">稍後將使用 CPS 向度分析</span>
+            </div>
+        </div>
+        
+        <div class="challenge-slip">
+            <div class="slip-header">
+                <span class="slip-number">挑戰卡</span>
+                <span class="slip-icon">✏️</span>
+            </div>
+            <div class="slip-content">
+                <span class="slip-label">寫下一個持續性實施障礙：</span>
+                <div class="challenge-text">自由遊戲期間衝突好密，最後變咗「處理紀律」多過玩。</div>
+                <div class="write-line"></div>
+            </div>
+            <div class="slip-footer">
+                <span class="brand-mark">自由遊戲個案研討會</span>
+                <span class="cps-hint">稍後將使用 CPS 向度分析</span>
+            </div>
+        </div>
+        
+        <div class="challenge-slip">
+            <div class="slip-header">
+                <span class="slip-number">挑戰卡</span>
+                <span class="slip-icon">✏️</span>
+            </div>
+            <div class="slip-content">
+                <span class="slip-label">寫下一個持續性實施障礙：</span>
+                <div class="challenge-text">有啲小朋友一俾人拒絕就即刻縮返後；我可以點樣即場支援？</div>
+                <div class="write-line"></div>
+            </div>
+            <div class="slip-footer">
+                <span class="brand-mark">自由遊戲個案研討會</span>
+                <span class="cps-hint">稍後將使用 CPS 向度分析</span>
+            </div>
+        </div>
+        
+        <div class="page-break-after"></div>
+        
+        <!-- Cognitive Spontaneity -->
+        <div class="challenge-slip">
+            <div class="slip-header">
+                <span class="slip-number">挑戰卡</span>
+                <span class="slip-icon">✏️</span>
+            </div>
+            <div class="slip-content">
+                <span class="slip-label">寫下一個持續性實施障礙：</span>
+                <div class="challenge-text">小朋友成日望住我表示之後應該做咩，等指令先郁。</div>
+                <div class="write-line"></div>
+            </div>
+            <div class="slip-footer">
+                <span class="brand-mark">自由遊戲個案研討會</span>
+                <span class="cps-hint">稍後將使用 CPS 向度分析</span>
+            </div>
+        </div>
+        
+        <div class="challenge-slip">
+            <div class="slip-header">
+                <span class="slip-number">挑戰卡</span>
+                <span class="slip-icon">✏️</span>
+            </div>
+            <div class="slip-content">
+                <span class="slip-label">寫下一個持續性實施障礙：</span>
+                <div class="challenge-text">點樣延伸佢哋嘅想法，但又唔會變成老師主導嘅教學活動？</div>
+                <div class="write-line"></div>
+            </div>
+            <div class="slip-footer">
+                <span class="brand-mark">自由遊戲個案研討會</span>
+                <span class="cps-hint">稍後將使用 CPS 向度分析</span>
+            </div>
+        </div>
+        
+        <div class="challenge-slip">
+            <div class="slip-header">
+                <span class="slip-number">挑戰卡</span>
+                <span class="slip-icon">✏️</span>
+            </div>
+            <div class="slip-content">
+                <span class="slip-label">寫下一個持續性實施障礙：</span>
+                <div class="challenge-text">每日都玩同一條故事線，冇乜新變化。</div>
+                <div class="write-line"></div>
+            </div>
+            <div class="slip-footer">
+                <span class="brand-mark">自由遊戲個案研討會</span>
+                <span class="cps-hint">稍後將使用 CPS 向度分析</span>
+            </div>
+        </div>
+        
+        <div class="challenge-slip">
+            <div class="slip-header">
+                <span class="slip-number">挑戰卡</span>
+                <span class="slip-icon">✏️</span>
+            </div>
+            <div class="slip-content">
+                <span class="slip-label">寫下一個持續性實施障礙：</span>
+                <div class="challenge-text">因為要配合主題／課程要求，變到好難畀小朋友真正 improvise。</div>
+                <div class="write-line"></div>
+            </div>
+            <div class="slip-footer">
+                <span class="brand-mark">自由遊戲個案研討會</span>
+                <span class="cps-hint">稍後將使用 CPS 向度分析</span>
+            </div>
+        </div>
+        
+        <div class="challenge-slip">
+            <div class="slip-header">
+                <span class="slip-number">挑戰卡</span>
+                <span class="slip-icon">✏️</span>
+            </div>
+            <div class="slip-content">
+                <span class="slip-label">寫下一個持續性實施障礙：</span>
+                <div class="challenge-text">物料好有限，我唔知點樣引出更多可能性。</div>
+                <div class="write-line"></div>
+            </div>
+            <div class="slip-footer">
+                <span class="brand-mark">自由遊戲個案研討會</span>
+                <span class="cps-hint">稍後將使用 CPS 向度分析</span>
+            </div>
+        </div>
+        
+        <div class="page-break-after"></div>
+        
+        <!-- Physical Spontaneity -->
+        <div class="challenge-slip">
+            <div class="slip-header">
+                <span class="slip-number">挑戰卡</span>
+                <span class="slip-icon">✏️</span>
+            </div>
+            <div class="slip-content">
+                <span class="slip-label">寫下一個持續性實施障礙：</span>
+                <div class="challenge-text">空間細所以限制走動，最後自由遊戲變咗「坐定定、靜靜地」。</div>
+                <div class="write-line"></div>
+            </div>
+            <div class="slip-footer">
+                <span class="brand-mark">自由遊戲個案研討會</span>
+                <span class="cps-hint">稍後將使用 CPS 向度分析</span>
+            </div>
+        </div>
+        
+        <div class="challenge-slip">
+            <div class="slip-header">
+                <span class="slip-number">挑戰卡</span>
+                <span class="slip-icon">✏️</span>
+            </div>
+            <div class="slip-content">
+                <span class="slip-label">寫下一個持續性實施障礙：</span>
+                <div class="challenge-text">點樣喺「好逼嘅房」都容許大肌肉活動，但又安全？</div>
+                <div class="write-line"></div>
+            </div>
+            <div class="slip-footer">
+                <span class="brand-mark">自由遊戲個案研討會</span>
+                <span class="cps-hint">稍後將使用 CPS 向度分析</span>
+            </div>
+        </div>
+        
+        <div class="challenge-slip">
+            <div class="slip-header">
+                <span class="slip-number">挑戰卡</span>
+                <span class="slip-icon">✏️</span>
+            </div>
+            <div class="slip-content">
+                <span class="slip-label">寫下一個持續性實施障礙：</span>
+                <div class="challenge-text">一見到爬／跳／搬運就好快制止，因為驚受傷。</div>
+                <div class="write-line"></div>
+            </div>
+            <div class="slip-footer">
+                <span class="brand-mark">自由遊戲個案研討會</span>
+                <span class="cps-hint">稍後將使用 CPS 向度分析</span>
+            </div>
+        </div>
+        
+        <div class="challenge-slip">
+            <div class="slip-header">
+                <span class="slip-number">挑戰卡</span>
+                <span class="slip-icon">✏️</span>
+            </div>
+            <div class="slip-content">
+                <span class="slip-label">寫下一個持續性實施障礙：</span>
+                <div class="challenge-text">校內規則好似「唔好掂、唔好郁太多」，整體氣氛好收。</div>
+                <div class="write-line"></div>
+            </div>
+            <div class="slip-footer">
+                <span class="brand-mark">自由遊戲個案研討會</span>
+                <span class="cps-hint">稍後將使用 CPS 向度分析</span>
+            </div>
+        </div>
+        
+        <div class="challenge-slip">
+            <div class="slip-header">
+                <span class="slip-number">挑戰卡</span>
+                <span class="slip-icon">✏️</span>
+            </div>
+            <div class="slip-content">
+                <span class="slip-label">寫下一個持續性實施障礙：</span>
+                <div class="challenge-text">收拾／排隊／轉場太密，玩到起勢就被打斷，之後好難再投入。</div>
+                <div class="write-line"></div>
+            </div>
+            <div class="slip-footer">
+                <span class="brand-mark">自由遊戲個案研討會</span>
+                <span class="cps-hint">稍後將使用 CPS 向度分析</span>
+            </div>
+        </div>
+        
+        <div class="page-break-after"></div>
+        
+        <!-- Sense of Humour -->
+        <div class="challenge-slip">
+            <div class="slip-header">
+                <span class="slip-number">挑戰卡</span>
+                <span class="slip-icon">✏️</span>
+            </div>
+            <div class="slip-content">
+                <span class="slip-label">寫下一個持續性實施障礙：</span>
+                <div class="challenge-text">小朋友講笑／扮傻成日俾人糾正，覺得「唔應該」。</div>
+                <div class="write-line"></div>
+            </div>
+            <div class="slip-footer">
+                <span class="brand-mark">自由遊戲個案研討會</span>
+                <span class="cps-hint">稍後將使用 CPS 向度分析</span>
+            </div>
+        </div>
+        
+        <div class="challenge-slip">
+            <div class="slip-header">
+                <span class="slip-number">挑戰卡</span>
+                <span class="slip-icon">✏️</span>
+            </div>
+            <div class="slip-content">
+                <span class="slip-label">寫下一個持續性實施障礙：</span>
+                <div class="challenge-text">點樣回應「無厘頭／傻氣」遊戲，唔熄火又唔失控？</div>
+                <div class="write-line"></div>
+            </div>
+            <div class="slip-footer">
+                <span class="brand-mark">自由遊戲個案研討會</span>
+                <span class="cps-hint">稍後將使用 CPS 向度分析</span>
+            </div>
+        </div>
+        
+        <div class="challenge-slip">
+            <div class="slip-header">
+                <span class="slip-number">挑戰卡</span>
+                <span class="slip-icon">✏️</span>
+            </div>
+            <div class="slip-content">
+                <span class="slip-label">寫下一個持續性實施障礙：</span>
+                <div class="challenge-text">扮壞人／廁所／搞怪題材，大人覺得尷尬就想叫停。</div>
+                <div class="write-line"></div>
+            </div>
+            <div class="slip-footer">
+                <span class="brand-mark">自由遊戲個案研討會</span>
+                <span class="cps-hint">稍後將使用 CPS 向度分析</span>
+            </div>
+        </div>
+        
+        <div class="challenge-slip">
+            <div class="slip-header">
+                <span class="slip-number">挑戰卡</span>
+                <span class="slip-icon">✏️</span>
+            </div>
+            <div class="slip-content">
+                <span class="slip-label">寫下一個持續性實施障礙：</span>
+                <div class="challenge-text">成個班房氣氛太嚴肅，自由遊戲都唔夠輕鬆好玩。</div>
+                <div class="write-line"></div>
+            </div>
+            <div class="slip-footer">
+                <span class="brand-mark">自由遊戲個案研討會</span>
+                <span class="cps-hint">稍後將使用 CPS 向度分析</span>
+            </div>
+        </div>
+        
+        <div class="challenge-slip">
+            <div class="slip-header">
+                <span class="slip-number">挑戰卡</span>
+                <span class="slip-icon">✏️</span>
+            </div>
+            <div class="slip-content">
+                <span class="slip-label">寫下一個持續性實施障礙：</span>
+                <div class="challenge-text">驚家長誤會小朋友「太頑」／「唔正經」，所以大人更想管理。</div>
+                <div class="write-line"></div>
+            </div>
+            <div class="slip-footer">
+                <span class="brand-mark">自由遊戲個案研討會</span>
+                <span class="cps-hint">稍後將使用 CPS 向度分析</span>
+            </div>
+        </div>
+        
+        <div class="page-break-after"></div>
+        
+        <!-- Manifest Joy -->
+        <div class="challenge-slip">
+            <div class="slip-header">
+                <span class="slip-number">挑戰卡</span>
+                <span class="slip-icon">✏️</span>
+            </div>
+            <div class="slip-content">
+                <span class="slip-label">寫下一個持續性實施障礙：</span>
+                <div class="challenge-text">有啲小朋友玩嘅時候好緊張，只揀「安全」嘅活動。</div>
+                <div class="write-line"></div>
+            </div>
+            <div class="slip-footer">
+                <span class="brand-mark">自由遊戲個案研討會</span>
+                <span class="cps-hint">稍後將使用 CPS 向度分析</span>
+            </div>
+        </div>
+        
+        <div class="challenge-slip">
+            <div class="slip-header">
+                <span class="slip-number">挑戰卡</span>
+                <span class="slip-icon">✏️</span>
+            </div>
+            <div class="slip-content">
+                <span class="slip-label">寫下一個持續性實施障礙：</span>
+                <div class="challenge-text">有啲小朋友唔會好誇張表達開心，我點樣判斷佢係唔係享受？</div>
+                <div class="write-line"></div>
+            </div>
+            <div class="slip-footer">
+                <span class="brand-mark">自由遊戲個案研討會</span>
+                <span class="cps-hint">稍後將使用 CPS 向度分析</span>
+            </div>
+        </div>
+        
+        <div class="challenge-slip">
+            <div class="slip-header">
+                <span class="slip-number">挑戰卡</span>
+                <span class="slip-icon">✏️</span>
+            </div>
+            <div class="slip-content">
+                <span class="slip-label">寫下一個持續性實施障礙：</span>
+                <div class="challenge-text">大人自己好緊張嘈／亂／污糟，小朋友好似感受到，結果玩得唔放。</div>
+                <div class="write-line"></div>
+            </div>
+            <div class="slip-footer">
+                <span class="brand-mark">自由遊戲個案研討會</span>
+                <span class="cps-hint">稍後將使用 CPS 向度分析</span>
+            </div>
+        </div>
+        
+        <div class="challenge-slip">
+            <div class="slip-header">
+                <span class="slip-number">挑戰卡</span>
+                <span class="slip-icon">✏️</span>
+            </div>
+            <div class="slip-content">
+                <span class="slip-label">寫下一個持續性實施障礙：</span>
+                <div class="challenge-text">一遇到唔順利就好快放棄，玩唔落去。</div>
+                <div class="write-line"></div>
+            </div>
+            <div class="slip-footer">
+                <span class="brand-mark">自由遊戲個案研討會</span>
+                <span class="cps-hint">稍後將使用 CPS 向度分析</span>
+            </div>
+        </div>
+        
+        <div class="challenge-slip">
+            <div class="slip-header">
+                <span class="slip-number">挑戰卡</span>
+                <span class="slip-icon">✏️</span>
+            </div>
+            <div class="slip-content">
+                <span class="slip-label">寫下一個持續性實施障礙：</span>
+                <div class="challenge-text">太著重「成果／證據／影相」，玩嘅開心感消失。</div>
+                <div class="write-line"></div>
+            </div>
+            <div class="slip-footer">
+                <span class="brand-mark">自由遊戲個案研討會</span>
+                <span class="cps-hint">稍後將使用 CPS 向度分析</span>
+            </div>
+        </div>
+        
+    </div>
+</body>
+</html>
