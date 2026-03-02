@@ -115,23 +115,52 @@ nav {
 }
 
 .dashboard-grid {
-        grid-template-columns: 1fr;
-        padding: 1rem;
-    }
-
-    .hero {
-    text-align: center;
-    padding: 4rem 1rem;
-    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
 }
 
-.hero .subtitle:nth-of-type(2) {
-    color: #555;
-    font-weight: 500;
+.card {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: var(--card-shadow);
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s;
+    text-align: center;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(43, 57, 144, 0.15);
+    background-color: var(--card-hover-color);
+}
+
+.card i {
+    font-size: 2rem;
+    color: var(--brand-orange);
     margin-bottom: 1rem;
 }
 
-    
+.card h2 {
+    margin-bottom: 0.5rem;
+    color: var(--brand-navy);
+    font-size: 1.3rem;
+}
+
+.card p {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+        padding: 1rem;
+    }
 
     .content-wrapper {
         padding: 1rem;
@@ -158,8 +187,6 @@ nav {
         flex-direction: column;
     }
 
-    
-
     .time-block {
         flex: none;
         text-align: left;
@@ -172,46 +199,16 @@ nav {
         margin-left: 3rem;
     }
 
-    
-
     .schedule-table {
         margin: 1rem;
         padding: 0.5rem;
     }
-    
+
     .schedule-table th,
     .schedule-table td {
         padding: 0.8rem;
         font-size: 0.85rem;
     }
-
-    .schedule-table .activity-header {
-    background-color: white;
-    padding: 1rem;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-}
-header::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, 
-        var(--brand-navy) 0%, var(--brand-navy) 20%,
-        var(--brand-orange) 20%, var(--brand-orange) 40%,
-        var(--brand-pink) 40%, var(--brand-pink) 60%,
-        var(--brand-green) 60%, var(--brand-green) 80%,
-        var(--brand-yellow) 80%, var(--brand-yellow) 100%
-    );
-}
-
-    .page-header 
-
-    .page-header 
 
     .schedule-table tr:hover {
         transform: none;
@@ -438,27 +435,15 @@ header::before {
 }
 
 .task-category-header {
-    background-color: white;
-    padding: 1rem;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-}
-header::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, 
-        var(--brand-navy) 0%, var(--brand-navy) 20%,
-        var(--brand-orange) 20%, var(--brand-orange) 40%,
-        var(--brand-pink) 40%, var(--brand-pink) 60%,
-        var(--brand-green) 60%, var(--brand-green) 80%,
-        var(--brand-yellow) 80%, var(--brand-yellow) 100%
-    );
+    color: #2b3990;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #e2e8f0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
 .task-category-header i {
@@ -472,27 +457,10 @@ header::before {
 }
 
 .task-time-header {
-    background-color: white;
-    padding: 1rem;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-}
-header::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, 
-        var(--brand-navy) 0%, var(--brand-navy) 20%,
-        var(--brand-orange) 20%, var(--brand-orange) 40%,
-        var(--brand-pink) 40%, var(--brand-pink) 60%,
-        var(--brand-green) 60%, var(--brand-green) 80%,
-        var(--brand-yellow) 80%, var(--brand-yellow) 100%
-    );
+    color: #4a5568;
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin-bottom: 8px;
 }
 
 .task-item {
