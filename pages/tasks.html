@@ -276,12 +276,9 @@
                         if (!tasks) return;
 
                         Object.entries(tasks).forEach(([category, categoryData]) => {
-                            if (category === 'transport-arrival' || category === 'transport-departure') {
-                                if (!tasksByCategory[category]) {
-                                    tasksByCategory[category] = {};
-                                }
+                            if (tasksByCategory[category] !== undefined) {
                                 if (Array.isArray(categoryData)) {
-                                    // If it's an array, treat it as a single time slot
+                                    // Flat array format — group under 'Scheduled'
                                     if (!tasksByCategory[category]['Scheduled']) {
                                         tasksByCategory[category]['Scheduled'] = [];
                                     }
@@ -292,32 +289,21 @@
                                         });
                                     });
                                 } else {
-                                    // Handle object-style transport sections with time slots
+                                    // Object format with named time slots
                                     Object.entries(categoryData).forEach(([timeSlot, timeSlotTasks]) => {
                                         if (!tasksByCategory[category][timeSlot]) {
                                             tasksByCategory[category][timeSlot] = [];
                                         }
-                                        timeSlotTasks.forEach(task => {
-                                            tasksByCategory[category][timeSlot].push({
-                                                ...task,
-                                                role: roleData.name || roleData.roleId
+                                        if (Array.isArray(timeSlotTasks)) {
+                                            timeSlotTasks.forEach(task => {
+                                                tasksByCategory[category][timeSlot].push({
+                                                    ...task,
+                                                    role: roleData.name || roleData.roleId
+                                                });
                                             });
-                                        });
+                                        }
                                     });
                                 }
-                            } else if (tasksByCategory[category]) {
-                                // Handle regular sections with time slots
-                                Object.entries(categoryData).forEach(([timeSlot, timeSlotTasks]) => {
-                                    if (!tasksByCategory[category][timeSlot]) {
-                                        tasksByCategory[category][timeSlot] = [];
-                                    }
-                                    timeSlotTasks.forEach(task => {
-                                        tasksByCategory[category][timeSlot].push({
-                                            ...task,
-                                            role: roleData.name || roleData.roleId
-                                        });
-                                    });
-                                });
                             }
                         });
                     });
