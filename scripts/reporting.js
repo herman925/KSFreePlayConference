@@ -57,7 +57,7 @@ async function exportParticipants(format) {
             const wb = XLSX.utils.book_new();
             const ws = XLSX.utils.json_to_sheet(enrichedData);
             XLSX.utils.book_append_sheet(wb, ws, 'Participants');
-            XLSX.writeFile(wb, \participants_.xlsx\);
+            XLSX.writeFile(wb, `participants_${getFormattedDate()}.xlsx`);
         } else {
             exportToCSV(enrichedData, 'participants');
         }
@@ -65,7 +65,9 @@ async function exportParticipants(format) {
         console.error('Export failed:', error);
         alert('Export failed. Please try again.');
     }
-}() {
+}
+
+async function exportAttendanceList() {
     try {
         const response = await fetch('https://docs.google.com/spreadsheets/d/e/2PACX-1vQuYD89J0S3rimF3W1IMwsDzeC-9x0tL_4qu3NR8hz1T0xSAptXXTX-Y1WKOoV-LPy7yg8Y4HOW5sf3/pub?gid=1932839246&single=true&output=csv');
         const text = await response.text();
