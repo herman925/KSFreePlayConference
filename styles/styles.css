@@ -24,6 +24,7 @@ body {
     background-color: var(--background-color);
     color: var(--text-color);
     line-height: 1.6;
+    overflow-x: hidden;
 }
 
 header {
@@ -148,12 +149,14 @@ nav {
 }
 
 .person-selector select {
-    padding: 0.5rem 1rem;
+    padding: 0.4rem 0.75rem;
     border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 1rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
     cursor: pointer;
     background-color: white;
+    max-width: 200px;
+    width: 100%;
 }
 
 .hero {

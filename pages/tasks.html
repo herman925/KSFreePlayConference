@@ -8,164 +8,97 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
+        .tasks-container { max-width: 800px; margin: 0 auto; padding: 0 1rem 2rem; }
+
         .timeline-section {
-            margin-bottom: 30px;
+            margin-bottom: 16px;
             background: white;
-            border-radius: 8px;
-            padding: 20px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            width: 100%;
-            max-width: 100%;
-            overflow-x: hidden;
+            border-radius: 10px;
+            padding: 14px 16px;
+            box-shadow: var(--card-shadow);
         }
         .timeline-section h3 {
-            color: #f99d33;  /* Google Blue */
-            margin-bottom: 15px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #fff8e1;
-            font-size: 1.3em;
-            font-weight: 600;
+            color: var(--brand-navy);
+            margin-bottom: 10px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #f1f3f4;
+            font-size: 1rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 6px;
         }
         .timeline-subsection {
-            margin-left: 20px;
-            margin-bottom: 20px;
+            margin: 8px 0 4px;
         }
         .timeline-subsection h4 {
-            color: #188038;  /* Google Green */
-            margin-bottom: 10px;
-            font-size: 1.1em;
-            font-weight: 500;
-            padding-bottom: 5px;
-            border-bottom: 1px solid #e6f4ea;
+            color: #188038;
+            margin-bottom: 6px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 4px 8px;
+            background: #f0fdf4;
+            border-radius: 4px;
         }
         .task-item {
             display: flex;
             align-items: center;
-            margin-bottom: 12px;
-            padding: 12px 16px;
-            border-radius: 8px;
-            min-height: 48px;
-            gap: 16px;
-            transition: all 0.2s ease;
-            border: 1px solid #f1f3f4;
-            background: #ffffff;
+            padding: 7px 10px 7px 12px;
+            border-radius: 6px;
+            gap: 8px;
+            background: #fff;
+            border-left: 3px solid var(--brand-orange);
+            margin-bottom: 5px;
+            transition: background 0.15s;
         }
-        .task-item:hover {
-            background-color: #f8f9fa;
-            border-color: #e8eaed;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.04);
-        }
-        .task-text {
-            display: flex;
-            align-items: flex-start;
+        .task-item:hover { background: #fffcf5; }
+        .task-label {
             flex: 1;
-            min-width: 0;
-        }
-        .task-checkbox {
-            margin-top: 3px;
-            margin-right: 12px;
-            flex-shrink: 0;
-            width: 18px;
-            height: 18px;
-            cursor: pointer;
-        }
-        .task-text label {
-            cursor: pointer;
+            font-size: 0.88rem;
             line-height: 1.4;
             color: #3c4043;
-            font-size: 0.95em;
-        }
-        .task-time {
-            color: #5f6368;
-            font-size: 0.9em;
-            font-weight: 500;
-            text-align: right;
-            flex-shrink: 0;
-            min-width: 80px;
-        }
-        .task-tag {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background: #fff8e1;
-            padding: 6px 14px;
-            border-radius: 20px;
-            font-size: 0.85em;
-            font-weight: 600;
-            color: #1967d2;
-            flex-shrink: 0;
-            white-space: nowrap;
-            letter-spacing: 0.3px;
-            border: 1px solid #ffe0b2;
+            min-width: 0;
         }
         .task-role {
-            display: inline-block;
-            margin-left: 8px;
-            font-size: 0.9em;
-            color: #1967d2;  /* Darker Google Blue */
-            font-weight: 500;
+            font-size: 0.78rem;
+            color: var(--brand-navy);
+            font-weight: 600;
+            opacity: 0.7;
+            white-space: nowrap;
         }
-        .info-message {
-            background: #e3f2fd;
-            color: #1565c0;
-            padding: 15px;
-            border-radius: 8px;
-            text-align: center;
-            margin: 20px 0;
+        .task-time {
+            color: var(--brand-orange);
+            font-size: 0.78rem;
+            font-weight: 600;
+            white-space: nowrap;
+            flex-shrink: 0;
         }
-        .error-message {
-            background: #ffebee;
-            color: #c62828;
-            padding: 15px;
-            border-radius: 8px;
-            text-align: center;
-            margin: 20px 0;
+        .task-tag {
+            background: #fff8e1;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--brand-navy);
+            white-space: nowrap;
+            border: 1px solid #ffe0b2;
+            flex-shrink: 0;
         }
-        .time-group {
-            margin-left: 20px;
-            margin-bottom: 15px;
-        }
+        .time-group { margin: 4px 0 8px; }
         .time-group h5 {
-            color: #c5221f;  /* Google Red */
-            font-size: 0.95em;
-            margin: 8px 0;
-            padding-bottom: 4px;
-            font-weight: 500;
-            border-bottom: 1px dashed #fce8e6;
+            color: #c5221f;
+            font-size: 0.78rem;
+            margin: 6px 0 4px;
+            font-weight: 600;
         }
-        /* Debug Panel Styles */
-        #debugPanel {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: #f8f9fa;
-            border: 1px solid #dee2e6;
-            border-radius: 8px;
-            padding: 15px;
-            max-width: 400px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            z-index: 1000;
-            display: none;
-        }
-        #debugPanel.visible {
-            display: block;
-        }
-        #jsonDisplay {
-            background: #fff;
-            border: 1px solid #ced4da;
-            border-radius: 4px;
-            padding: 10px;
-            margin-top: 10px;
-            max-height: 300px;
-            overflow-y: auto;
-            font-family: monospace;
-            white-space: pre-wrap;
-        }
-        .debug-controls {
-            margin-bottom: 10px;
-            display: flex;
-            gap: 10px;
-        }
+        .info-message { background:#e3f2fd; color:#1565c0; padding:12px; border-radius:8px; text-align:center; margin:16px 0; font-size:0.9rem; }
+        .error-message { background:#ffebee; color:#c62828; padding:12px; border-radius:8px; text-align:center; margin:16px 0; font-size:0.9rem; }
+        #debugPanel { position:fixed; bottom:20px; right:20px; background:#f8f9fa; border:1px solid #dee2e6; border-radius:8px; padding:15px; max-width:400px; box-shadow:0 2px 4px rgba(0,0,0,0.1); z-index:1000; display:none; }
+        #debugPanel.visible { display:block; }
+        #jsonDisplay { background:#fff; border:1px solid #ced4da; border-radius:4px; padding:10px; margin-top:10px; max-height:300px; overflow-y:auto; font-family:monospace; white-space:pre-wrap; }
+        .debug-controls { margin-bottom:10px; display:flex; gap:10px; }
     </style>
 </head>
 <body>
@@ -652,24 +585,13 @@
             const isCompleted = taskCompletionState.isTaskCompleted(task.id);
             
             div.innerHTML = `
-                <div class="task-text">
-                    <input type="checkbox" class="task-checkbox" id="${task.id}" 
-                        ${isCompleted ? 'checked' : ''}>
-                    <label for="${task.id}">
-                        ${task.text}
-                        ${showRole ? `<span class="task-role">(${task.role})</span>` : ''}
-                    </label>
-                </div>
-                ${hideTime ? '<span class="task-time"></span>' : `<span class="task-time">${task.time || ''}</span>`}
-                ${task.tag ? `<span class="task-tag">${task.tag}</span>` : '<span></span>'}
+                <span class="task-label">
+                    ${task.text}
+                    ${showRole ? `<span class="task-role"> · ${task.role}</span>` : ''}
+                </span>
+                ${!hideTime && task.time ? `<span class="task-time">${task.time}</span>` : ''}
+                ${task.tag ? `<span class="task-tag">${task.tag}</span>` : ''}
             `;
-            
-            // Add checkbox event listener with new state management
-            const checkbox = div.querySelector('input[type="checkbox"]');
-            checkbox.addEventListener('change', function() {
-                const role = task.role || document.getElementById('roleSelect').value;
-                taskCompletionState.updateTask(task.id, this.checked, role);
-            });
             
             return div;
         }
