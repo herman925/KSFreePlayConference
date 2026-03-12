@@ -8,179 +8,25 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        .overview-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 24px;
-            padding: 20px;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .info-card {
-            background: white;
-            border-radius: 12px;
-            padding: 24px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-
-        .info-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-        }
-
-        .info-card h2 {
-            color: #2b3990;
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-            padding-bottom: 12px;
-            border-bottom: 2px solid #e9ecef;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .info-card h2 i {
-            color: #f99d33;
-        }
-
-        .details-grid {
-            display: grid;
-            gap: 16px;
-        }
-
-        .detail-item {
-            display: grid;
-            gap: 8px;
-        }
-
-        .detail-item strong {
-            color: #34495e;
-            font-weight: 500;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .detail-item strong i {
-            color: #9b59b6;
-            width: 16px;
-            text-align: center;
-        }
-
-        .detail-item span {
-            color: #576574;
-            line-height: 1.5;
-            padding-left: 24px;
-        }
-
-        .team-grid {
-            display: grid;
-            gap: 24px;
-        }
-
-        .team-member {
-            background: #ffffff;
-            border-radius: 8px;
-            padding: 16px;
-            margin-bottom: 16px;
-            border-left: 4px solid #f99d33;
-        }
-
-        .team-member h3 {
-            color: #2b3990;
-            font-size: 1.1rem;
-            margin-bottom: 12px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .team-member h3 i {
-            color: #f99d33;
-        }
-
-        .team-member ul {
-            list-style: none;
-            padding: 0;
-            margin: 0 0 0 24px;
-        }
-
-        .team-member li {
-            color: #576574;
-            padding: 8px 0;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .team-member li i {
-            color: #7f8c8d;
-            width: 16px;
-            text-align: center;
-        }
-
-        .team-member.oversight {
-            border-left-color: #e74c3c;
-        }
-
-        .team-member.core {
-            border-left-color: #f99d33;
-        }
-
-        .team-member.operations {
-            border-left-color: #2ecc71;
-        }
-
-        .quick-links {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 16px;
-        }
-
-        .link-button {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            background: #f99d33;
-            color: white;
-            padding: 12px 24px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.2s ease;
-        }
-
-        .link-button:hover {
-            background: #e88d22;
-            transform: translateY(-2px);
-        }
-
-        .link-button.registration {
-            background: #e74c3c;
-            margin-top: 20px;
-        }
-
-        .link-button.registration:hover {
-            background: #c0392b;
-        }
-
-        .link-button i {
-            font-size: 1.1em;
-        }
-
-        @media (max-width: 768px) {
-            .overview-content {
-                grid-template-columns: 1fr;
-                padding: 16px;
-            }
-
-            .quick-links {
-                grid-template-columns: 1fr;
-            }
-        }
+        .details-grid { display:grid; gap:14px; }
+        .detail-item { display:grid; gap:6px; }
+        .detail-item strong { color:#34495e; font-weight:500; display:flex; align-items:center; gap:8px; }
+        .detail-item strong i { color:#9b59b6; width:16px; text-align:center; }
+        .detail-item span { color:#576574; line-height:1.5; padding-left:24px; }
+        .team-member { background:#fff; border-radius:8px; padding:14px; margin-bottom:12px; border-left:4px solid #f99d33; }
+        .team-member h3 { color:#2b3990; font-size:1rem; margin-bottom:10px; display:flex; align-items:center; gap:8px; }
+        .team-member h3 i { color:#f99d33; }
+        .team-member ul { list-style:none; padding:0; margin:0 0 0 20px; }
+        .team-member li { color:#576574; padding:6px 0; display:flex; align-items:center; gap:10px; }
+        .team-member li i { color:#7f8c8d; width:16px; text-align:center; }
+        .team-member.oversight { border-left-color:#e74c3c; }
+        .team-member.core { border-left-color:#f99d33; }
+        .team-member.operations { border-left-color:#2ecc71; }
+        .quick-links { display:grid; grid-template-columns:repeat(auto-fit, minmax(180px,1fr)); gap:12px; }
+        .link-button { display:flex; align-items:center; justify-content:center; gap:10px; background:var(--brand-orange); color:white; padding:12px 20px; border-radius:8px; text-decoration:none; font-weight:600; transition:all 0.2s; }
+        .link-button:hover { background:#e88d22; transform:translateY(-2px); }
+        .link-button.registration { background:#e74c3c; margin-top:16px; }
+        .link-button.registration:hover { background:#c0392b; }
     </style>
 </head>
 <body>
@@ -205,8 +51,8 @@
             <div class="date-info"><i class="far fa-calendar"></i> March 14, 2026 (Saturday)</div>
         </section>
 
-        <section class="overview-content">
-            <div class="info-card">
+        <section class="page-grid">
+            <div class="page-card">
                 <h2><i class="fas fa-info-circle"></i> Program Details</h2>
                 <div class="details-grid">
                     <div class="detail-item">
@@ -243,7 +89,7 @@
                 </div>
             </div>
 
-            <div class="info-card">
+            <div class="page-card">
                 <h2><i class="fas fa-bullseye"></i> Key Objectives</h2>
                 
                 
@@ -275,7 +121,7 @@
 </div>
             </div>
 
-            <div class="info-card">
+            <div class="page-card">
                 <h2><i class="fas fa-users"></i> Team Structure</h2>
                 <div class="team-grid">
 <div class="team-member oversight">
@@ -307,7 +153,7 @@
                 </div>
             </div>
 
-            <div class="info-card">
+            <div class="page-card">
                 <h2><i class="fas fa-link"></i> Quick Links</h2>
                 <div class="quick-links">
                     <a href="schedule.html" class="link-button">

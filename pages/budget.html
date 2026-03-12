@@ -8,37 +8,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        .budget-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 24px;
-            padding: 20px;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .info-card {
-            background: white;
-            border-radius: 12px;
-            padding: 24px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-
-        .info-card h2 {
-            color: #2b3990;
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-            padding-bottom: 12px;
-            border-bottom: 2px solid #e9ecef;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .info-card h2 i {
-            color: #f99d33;
-        }
 
         .budget-table {
             width: 100%;
@@ -225,10 +194,6 @@
         }
 
         @media (max-width: 768px) {
-            .budget-content {
-                grid-template-columns: 1fr;
-                padding: 16px;
-            }
 
             .budget-controls {
                 flex-direction: column;
@@ -262,8 +227,8 @@
             <div class="date-info"><i class="far fa-clock"></i> January 4, 2025 (Saturday)</div>
         </section>
 
-        <section class="budget-content">
-            <div class="info-card">
+        <section class="page-grid">
+            <div class="page-card">
                 <h2><i class="fas fa-chart-pie"></i> Budget Overview</h2>
                 <div class="budget-controls">
                     <button class="budget-button add" onclick="showAddItemModal()">
