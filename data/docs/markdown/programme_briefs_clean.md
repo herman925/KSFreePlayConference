@@ -2,7 +2,7 @@
 
 ## Details
 - **Programme Date/Time**: nan
-- **Date & Time**: March 14, 2026 (Saturday)
+- **Date & Time**: 14 Mar 2026 (Saturday)
 - **Time**: 09:00 AM - 1:00 PM
 - **Registration**: Starts 8:30 AM
 - **Location**: Inno Centre, 72 Tat Chee Avenue, Kowloon Tong, Kowloon

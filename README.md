@@ -25,7 +25,7 @@ This dashboard is designed for the KeySteps@JC (Phase Two) Free Play Case Confer
 ### 3. Conference Information
 - **Event**: Free Play Case Conference
 - **Project**: KeySteps@JC (Phase Two)
-- **Date**: January 4, 2025 (Saturday)
+- **Date**: 14 Mar 2026 (Saturday)
 - **Venue**: Inno Centre, 72 Tat Chee Avenue, Kowloon Tong, Kowloon
 - **Target Group**: Teachers from five districts (Tuen Mun, Yuen Long, Kowloon City, Sha Tin, Sham Shui Po)
 
