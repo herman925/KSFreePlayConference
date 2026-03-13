@@ -26,17 +26,19 @@
 
 ## Activity 2: Community Resource Mapping
 ### Step 2.0: Community Brainstorming & Mapping (10 mins)
-- **Participant Action**: 1. Break into district groups
+- **Participant Action**: 1. Work within the pre-assigned group
 2. Brainstorm local spaces (parks, playgrounds, libraries, community centres, waterfronts)
-3. Post each location as a new item on the Padlet map.
+3. Post each location as a new item on the Padlet map
+4. Fill in the District (區段) and Location Type (地方類別) fields
+5. Add recommendation notes or supporting details if useful.
 - **Facilitator Action**: 1. Circulate among groups, challenging them to look beyond standard playgrounds
 2. Prompt to identify unique spaces e.g. rich in natural elements (water, sand, trees); allow for messy, adventurous play, directly addressing the common limitations of urban Hong Kong playscapes.
 
 ### Step 3.0: Analysis & Annotation (10 mins)
-- **Participant Action**: 1. Using the "Legend" sheet, discuss and analyse each mapped location
+- **Participant Action**: 1. Using the "Padlet Usage Guide", discuss and analyse each mapped location
 2. Add comments to Padlet posts evaluating the space against the principles from the prompt sheet
 - **Facilitator Action**: Prompt groups with targeted questions that reflect common coaching points, such as: "How could you use storytelling to make this space more relatable?" or "How can we empower parents to be play facilitators in this public space instead of just supervisors?
-- **Materials**: 1. 'Legend' Sheet
+- **Materials**: 1. 'Padlet Usage Guide'
 
 ### Step 4.0: Synthesis & Sharing Preparation (3 mins)
 - **Participant Action**: 1. Review annotated map

@@ -43,7 +43,7 @@
                 "step": "2.0",
                 "time": "10 mins",
                 "name": "Community Brainstorming & Mapping",
-                "participant_action": "1. Break into district groups\n2. Brainstorm local spaces (parks, playgrounds, libraries, community centres, waterfronts)\n3. Post each location as a new item on the Padlet map.",
+                "participant_action": "1. Work within the pre-assigned group\n2. Brainstorm local spaces (parks, playgrounds, libraries, community centres, waterfronts)\n3. Post each location as a new item on the Padlet map\n4. Fill in the District (區段) and Location Type (地方類別) fields\n5. Add recommendation notes or supporting details if useful.",
                 "facilitator_action": "1. Circulate among groups, challenging them to look beyond standard playgrounds\n2. Prompt to identify unique spaces e.g. rich in natural elements (water, sand, trees); allow for messy, adventurous play, directly addressing the common limitations of urban Hong Kong playscapes.",
                 "materials": ""
             },
@@ -51,9 +51,9 @@
                 "step": "3.0",
                 "time": "10 mins",
                 "name": "Analysis & Annotation",
-                "participant_action": "1. Using the \"Legend\" sheet, discuss and analyse each mapped location\n2. Add comments to Padlet posts evaluating the space against the principles from the prompt sheet",
+                "participant_action": "1. Using the \"Padlet Usage Guide\", discuss and analyse each mapped location\n2. Add comments to Padlet posts evaluating the space against the principles from the prompt sheet",
                 "facilitator_action": "Prompt groups with targeted questions that reflect common coaching points, such as: \"How could you use storytelling to make this space more relatable?\" or \"How can we empower parents to be play facilitators in this public space instead of just supervisors?",
-                "materials": "1. 'Legend' Sheet"
+                "materials": "1. 'Padlet Usage Guide'"
             },
             {
                 "step": "4.0",

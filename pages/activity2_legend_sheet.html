@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>活動 2 - Padlet 發文指南與圖例卡</title>
+    <title>「童亮自由玩！」社區地圖 - Padlet 使用指南</title>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -11,32 +11,32 @@
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         :root {
-            /* Brand Colors from Pantone guidelines */
             --navy-blue: #2b3990;
             --orange: #f99d33;
             --pink-red: #f04e69;
             --lime-green: #8dbe50;
             --yellow: #f4d036;
+            --purple: #9b59b6;
         }
-        
+
         body {
             font-family: 'DM Sans', sans-serif !important;
             background: #e8e8e8 !important;
             padding: 20px !important;
             min-height: 100vh !important;
         }
-        
+
         .page-container {
-            max-width: 800px;
+            max-width: 860px;
             margin: 0 auto;
             background: white !important;
             border-radius: 16px !important;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.1) !important;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1) !important;
             overflow: hidden;
         }
-        
+
         .sheet-header {
             background: var(--navy-blue);
             color: white;
@@ -45,6 +45,7 @@
             position: relative;
             border-radius: 16px 16px 0 0 !important;
         }
+
         .sheet-header::before {
             content: '';
             position: absolute;
@@ -52,7 +53,8 @@
             left: 0;
             right: 0;
             height: 8px;
-            background: linear-gradient(90deg, 
+            background: linear-gradient(
+                90deg,
                 var(--navy-blue) 0%, var(--navy-blue) 20%,
                 var(--orange) 20%, var(--orange) 40%,
                 var(--pink-red) 40%, var(--pink-red) 60%,
@@ -60,153 +62,26 @@
                 var(--yellow) 80%, var(--yellow) 100%
             ) !important;
         }
-        
+
         .sheet-header h1 {
             font-size: 1.8rem !important;
             font-weight: 700 !important;
             margin-bottom: 8px !important;
         }
-        
+
         .sheet-header p {
             font-size: 1rem !important;
-            opacity: 0.9 !important;
+            opacity: 0.92 !important;
         }
-        
+
         .content-section {
             padding: 32px !important;
         }
-        
-        .instructions-box {
-            background: #f0f4ff !important;
-            border-radius: 12px !important;
-            padding: 24px !important;
-            margin-bottom: 24px !important;
-            border-left: 6px solid var(--navy-blue) !important;
-            box-shadow: 0 4px 12px rgba(43, 57, 144, 0.05) !important;
+
+        .download-wrap {
+            padding: 24px 32px 0 32px !important;
         }
-        .instructions-box h3 {
-            font-size: 1.1rem !important;
-            color: var(--navy-blue) !important;
-            margin-bottom: 8px !important;
-            font-weight: 700 !important;
-        }
-        
-        .instructions-box p {
-            color: #444 !important;
-            line-height: 1.6 !important;
-            font-size: 0.95rem !important;
-        }
-        
-        .legend-grid {
-            display: grid;
-            gap: 16px;
-        }
-        
-        .legend-item {
-            display: flex;
-            align-items: center;
-            background: white !important;
-            border: 2px solid #e8eaed !important;
-            border-radius: 12px !important;
-            padding: 16px 20px !important;
-            gap: 20px;
-        }
-        
-        .legend-item.social { border-color: #f04e69 !important; border-left-width: 12px !important; }
-        .legend-item.cognitive { border-color: #f4d036 !important; border-left-width: 12px !important; }
-        .legend-item.physical { border-color: #8dbe50 !important; border-left-width: 12px !important; }
-        .legend-item.quiet { border-color: #2b3990 !important; border-left-width: 12px !important; }
-        .legend-item.thrill { border-color: #9b59b6 !important; border-left-width: 12px !important; }
-        .legend-item.keysteps { border-color: #e0e0e0 !important; border-left-width: 12px !important; }
-        
-        .color-circle {
-            width: 40px;
-            height: 40px;
-            border-radius: 50% !important;
-            flex-shrink: 0;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
-            border: 2px solid white !important;
-        }
-        
-        .social .color-circle { background: #f04e69 !important; } /* Padlet Red */
-        .cognitive .color-circle { background: #f4d036 !important; } /* Padlet Yellow */
-        .physical .color-circle { background: #8dbe50 !important; } /* Padlet Green */
-        .quiet .color-circle { background: #2b3990 !important; } /* Padlet Blue (closest brand color) */
-        .thrill .color-circle { background: #9b59b6 !important; } /* Padlet Purple */
-        .keysteps .color-circle { background: #ffffff !important; border: 2px solid #ccc !important; } /* Padlet White */
-        
-        .legend-details {
-            flex: 1;
-        }
-        
-        .legend-title {
-            font-size: 1.1rem !important;
-            font-weight: 700 !important;
-            margin-bottom: 4px !important;
-        }
-        
-        .social .legend-title { color: #f04e69 !important; }
-        .cognitive .legend-title { color: #d4a700 !important; }
-        .physical .legend-title { color: #8dbe50 !important; }
-        .quiet .legend-title { color: #2b3990 !important; }
-        .thrill .legend-title { color: #9b59b6 !important; }
-        .keysteps .legend-title { color: #616161 !important; }
-        
-        .legend-desc {
-            font-size: 0.95rem !important;
-            color: #555 !important;
-            line-height: 1.4 !important;
-        }
-        
-        .examples-box {
-            background: #fff8e1 !important;
-            border-left: 4px solid #f99d33 !important;
-            border-radius: 8px !important;
-            padding: 16px 20px !important;
-            margin-bottom: 24px !important;
-        }
-        
-        .examples-box h4 {
-            color: #f99d33 !important;
-            margin-bottom: 12px !important;
-            font-size: 1rem !important;
-        }
-        
-        .example-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 16px;
-        }
-        
-        .example-card {
-            background: white !important;
-            padding: 12px 16px !important;
-            border-radius: 6px !important;
-            border: 1px solid #ffe0b2 !important;
-        }
-        
-        .example-meta {
-            font-size: 0.8rem !important;
-            color: #5f6368 !important;
-            margin-bottom: 6px !important;
-        }
-        
-        .example-text {
-            font-size: 0.9rem !important;
-            color: #3c4043 !important;
-            line-height: 1.5 !important;
-            font-style: italic !important;
-        }
-        
-        .footer {
-            text-align: center;
-            padding: 16px 32px !important;
-            background: #f8f9fa !important;
-            border-top: 1px solid #e8eaed !important;
-            font-size: 0.8rem !important;
-            color: #888 !important;
-        }
-        
+
         .print-btn {
             display: inline-flex;
             align-items: center;
@@ -218,90 +93,180 @@
             border: none !important;
             border-radius: 30px !important;
             font-family: 'DM Sans', sans-serif !important;
-            font-size: 1.1rem !important;
+            font-size: 1.05rem !important;
             font-weight: 700 !important;
             cursor: pointer !important;
             box-shadow: 0 4px 12px rgba(249, 157, 51, 0.3) !important;
             transition: all 0.3s ease !important;
             text-decoration: none;
         }
+
+        .print-btn svg {
+            vertical-align: middle;
+            margin-right: 8px;
+        }
+
         .print-btn:hover {
             transform: translateY(-3px) !important;
             box-shadow: 0 8px 24px rgba(249, 157, 51, 0.4) !important;
             background: var(--pink-red) !important;
         }
-        
+
+        .instructions-box,
+        .examples-box,
+        .appendix-box {
+            border-radius: 12px !important;
+        }
+
+        .instructions-box {
+            background: #f0f4ff !important;
+            padding: 24px !important;
+            margin-bottom: 24px !important;
+            border-left: 6px solid var(--navy-blue) !important;
+            box-shadow: 0 4px 12px rgba(43, 57, 144, 0.05) !important;
+        }
+
+        .instructions-box h3 {
+            font-size: 1.1rem !important;
+            color: var(--navy-blue) !important;
+            margin-bottom: 10px !important;
+            font-weight: 700 !important;
+        }
+
+        .instructions-box p,
+        .helper-note,
+        .screenshot-caption {
+            color: #444 !important;
+            line-height: 1.6 !important;
+            font-size: 0.95rem !important;
+        }
+
+        .step-list {
+            margin-top: 10px !important;
+            padding-left: 22px !important;
+            color: #444 !important;
+            font-size: 0.95rem !important;
+            line-height: 1.7 !important;
+        }
+
+        .step-list li {
+            margin-bottom: 8px !important;
+        }
+
+        .helper-note {
+            margin-top: 14px !important;
+            padding: 12px 14px !important;
+            border-radius: 8px !important;
+            background: #fff7ed !important;
+            border-left: 4px solid var(--orange) !important;
+            color: #7c4a03 !important;
+        }
+
+        .screenshot-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 16px;
+            margin-top: 16px !important;
+        }
+
+        .screenshot-card {
+            background: white !important;
+            border: 1px solid #e8eaed !important;
+            border-radius: 10px !important;
+            padding: 12px !important;
+            text-align: center;
+        }
+
+        .screenshot-card img,
+        .inline-figure img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px !important;
+        }
+
+        .screenshot-caption {
+            margin-top: 10px !important;
+            color: #5f6368 !important;
+            font-size: 0.88rem !important;
+        }
+
+        .inline-figure {
+            margin-top: 16px !important;
+            text-align: center;
+        }
+
+        .examples-box {
+            background: #fff8e1 !important;
+            border-left: 4px solid var(--orange) !important;
+            padding: 16px 20px !important;
+            margin-bottom: 24px !important;
+        }
+
+        .examples-box h4,
+        .appendix-box h3 {
+            color: var(--navy-blue) !important;
+            margin-bottom: 12px !important;
+            font-size: 1rem !important;
+        }
+
         .appendix-box {
             background: #f8f9fa !important;
             border-top: 3px solid var(--navy-blue) !important;
             padding: 20px 32px !important;
-            margin-top: 0 !important;
         }
-        
-        .appendix-box h3 {
-            color: var(--navy-blue) !important;
-            font-size: 1rem !important;
-            margin-bottom: 12px !important;
-        }
-        
+
         .ref-table {
             width: 100%;
             border-collapse: collapse;
-            font-size: 0.82rem !important;
+            font-size: 0.84rem !important;
         }
-        
+
         .ref-table th {
             background: var(--navy-blue) !important;
             color: white !important;
-            padding: 7px 10px !important;
+            padding: 8px 10px !important;
             text-align: left;
             font-weight: 600;
         }
-        
+
         .ref-table td {
-            padding: 7px 10px !important;
+            padding: 8px 10px !important;
             border-bottom: 1px solid #e0e0e0 !important;
             vertical-align: top;
-            line-height: 1.4;
+            line-height: 1.45;
         }
-        
+
         .ref-table tr:nth-child(even) td {
             background: #f0f4ff !important;
         }
-        
-        .color-dot {
-            display: inline-block;
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            margin-right: 5px;
-            vertical-align: middle;
-            border: 1px solid rgba(0,0,0,0.15);
+
+        .footer {
+            text-align: center;
+            padding: 16px 32px !important;
+            background: #f8f9fa !important;
+            border-top: 1px solid #e8eaed !important;
+            font-size: 0.8rem !important;
+            color: #888 !important;
         }
-        .dot-red    { background: #ea4335; }
-        .dot-yellow { background: #fbbc04; }
-        .dot-green  { background: #34a853; }
-        .dot-blue   { background: #4285f4; }
-        .dot-purple { background: #9c27b0; }
-        
-        /* Print styles */
+
         @media print {
             body {
                 background: white !important;
                 padding: 0 !important;
             }
-            
+
             .page-container {
                 box-shadow: none !important;
                 max-width: 100%;
                 border-radius: 0 !important;
             }
-            
+
             .no-print {
                 display: none !important;
             }
-            
-            .legend-item {
+
+            .instructions-box,
+            .examples-box {
                 break-inside: avoid;
             }
         }
@@ -310,116 +275,158 @@
 <body>
     <div class="page-container">
         <header class="sheet-header">
-            <h1>活動 2：Padlet 發文指南與圖例卡</h1>
-            <p>我們的遊戲社區 (Our Playful Community) | 資源標記與發文指南</p>
+            <h1>「童亮自由玩！」社區地圖</h1>
+            <p>Padlet 使用指南</p>
         </header>
-        
-        <div style="padding: 24px 32px 0 32px;" class="no-print">
-            <a href="../downloads/legend_sheet.docx" download="legend_sheet.docx" class="print-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:8px;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>下載圖例卡 (Word)</a>
+
+        <div class="download-wrap no-print">
+            <a href="../downloads/legend_sheet.docx" download="legend_sheet.docx" class="print-btn">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                下載使用指南 (Word)
+            </a>
         </div>
-        
+
         <div class="content-section">
             <div class="instructions-box">
-                <h3>步驟 1：如何在 Padlet 正確發文？</h3>
-                <p>新增社區資源時，請確保填寫以下資訊，讓地圖更清晰：</p>
-                <ul style="margin-top: 8px; padding-left: 20px; color: #444; font-size: 0.95rem; line-height: 1.6;">
-                    <li><strong>標題：</strong>填寫地點名稱（例如：九龍公園）</li>
-                    <li><strong>相片：</strong>上載或搜尋該地點的相片</li>
-                    <li><strong>區段：</strong>選擇該地點所屬的地區（如：九龍城、沙田等）</li>
-                    <li><strong>地方類別 (必填)：</strong>選擇最適合的類別（童亮館、室內遊樂設施、戶外遊樂設施、公共空間、圖書館、其他）</li>
-                </ul>
-            </div>
-            
-            <div class="instructions-box" style="background: #fff8e1 !important; border-left-color: var(--orange) !important;">
-                <h3 style="color: #d4a700 !important;">步驟 2：如何標記「推薦原因 / 遊戲價值」？</h3>
-                <p>請根據該地點<strong>最吸引人的遊戲價值</strong>，<strong>更改貼文的顏色（點擊貼文右上角的 ⋮，然後選擇顏色）</strong>。顏色主要用作分類推薦原因，不論室內外均可使用：</p>
-            </div>
-            
-            <div class="examples-box">
-                <h4>📝 內文撰寫示範 (如何具體寫出推薦原因？)</h4>
-                <div class="example-grid">
-                    <div class="example-card">
-                        <div class="example-meta"><strong>戶外例子：</strong> 📍 屯門公園共融遊樂場 (屯門) | 🔴 紅色貼文</div>
-                        <div class="example-text">「七個主題區讓不同能力的小朋友自然地在同一空間相遇，輪椅也可進入沙池，沒有隔閡。水和沙的設計沒有固定玩法，孩子會自己找到合作的方式，家長只需在旁守護，不必介入。」</div>
+                <h3>Padlet 社區地圖進入方法</h3>
+                <p>裝置需連接至網際網路，請先打開相機，再掃描二維碼或使用提供網址進入「童亮自由玩！」社區地圖。</p>
+                <div class="screenshot-row">
+                    <div class="screenshot-card">
+                        <img src="../downloads/legend_sheet_media/media/image1.jpeg" alt="打開裝置相機的示意圖">
+                        <div class="screenshot-caption">找到「相機」並打開程序。</div>
                     </div>
-                    <div class="example-card">
-                        <div class="example-meta"><strong>室內例子：</strong> 📍 車公廟體育館兒童遊戲室 (大圍) | 🔵 藍色貼文</div>
-                        <div class="example-text">「免費開放，環境寬敞不嘈吵。小朋友可以按自己步伐投入玩耍，不受天氣限制。家長坐在旁邊觀察就好，讓孩子主導自己的遊戲時間 — 正是練習「放手」的好地方。」</div>
+                    <div class="screenshot-card">
+                        <img src="../downloads/legend_sheet_media/media/image3.png" alt="掃描二維碼進入 Padlet 的示意圖">
+                        <div class="screenshot-caption">掃描二維碼進入「童亮自由玩！」社區地圖，或直接使用二維碼下方網址。</div>
                     </div>
                 </div>
-            </div>
-            
-            <div class="legend-grid">
-                <!-- KeySteps Hub -->
-                <div class="legend-item keysteps">
-                    <div class="color-circle"></div>
-                    <div class="legend-details">
-                        <div class="legend-title">⚪ 白色貼文 = 專屬「童亮館」</div>
-                        <div class="legend-desc">只限用於標記各區的童亮館 (KeySteps Hubs)。</div>
+                <div class="screenshot-row">
+                    <div class="screenshot-card">
+                        <img src="../downloads/legend_sheet_media/media/image4.png" alt="選擇所屬地區進入社區地圖的畫面之一">
+                    </div>
+                    <div class="screenshot-card">
+                        <img src="../downloads/legend_sheet_media/media/image5.png" alt="選擇所屬地區進入社區地圖的畫面之二">
                     </div>
                 </div>
+                <div class="helper-note">進入後，請選擇討論組別所屬的地區，再進入對應的社區地圖。</div>
+            </div>
 
-                <!-- Social Spontaneity -->
-                <div class="legend-item social">
-                    <div class="color-circle"></div>
-                    <div class="legend-details">
-                        <div class="legend-title">🔴 紅色貼文 = 社交與共融 (Social & Inclusive)</div>
-                        <div class="legend-desc">小朋友在這裡自然地找到玩伴、主動加入遊戲、一起協商玩法 — 不需大人安排。</div>
-                        <div class="legend-examples">例如：設計上鼓勵多人合作的設施、開放式草地讓陌生小朋友自然聚集、無障礙設施讓傷健兒童同場共玩。</div>
+            <div class="instructions-box">
+                <h3>Padlet 使用指南</h3>
+                <ol class="step-list">
+                    <li>點擊「+」號新增地點。</li>
+                    <li>輸入要新增的地點並點選正確地址。</li>
+                    <li>填寫推薦原因（選填）並設定地方類別。</li>
+                    <li>在下方找到增加多媒體圖示，點選想新增的內容，建議使用「連結」或「圖像」。</li>
+                    <li>完成後點擊「發佈」，即可將推薦地點發佈到社區地圖上。</li>
+                </ol>
+                <div class="helper-note">注意：請先完成推薦原因與地方類別，再檢查內容及附加媒體，完成後才按「發佈」。</div>
+                <div class="inline-figure">
+                    <img src="../downloads/legend_sheet_media/media/image6.png" alt="Padlet 新增貼文按鈕畫面">
+                </div>
+                <div class="screenshot-row">
+                    <div class="screenshot-card">
+                        <img src="../downloads/legend_sheet_media/media/image7.png" alt="Padlet 新增地點操作畫面之一">
+                    </div>
+                    <div class="screenshot-card">
+                        <img src="../downloads/legend_sheet_media/media/image8.png" alt="Padlet 新增地點操作畫面之二">
                     </div>
                 </div>
-                
-                <!-- Cognitive Spontaneity -->
-                <div class="legend-item cognitive">
-                    <div class="color-circle"></div>
-                    <div class="legend-details">
-                        <div class="legend-title">🟡 黃色貼文 = 探索與想像 (Exploration & Imagination)</div>
-                        <div class="legend-desc">環境本身就是玩具 — 小朋友可以自己發明玩法、改變規則、把地方變成自己的故事場景。</div>
-                        <div class="legend-examples">例如：沙池水池（自由塑造）、大自然元素（樹葉、石頭、泥土）、迷宮/洞穴（引發探索欲）、開放式空間讓孩子自訂遊戲。</div>
-                    </div>
-                </div>
-                
-                <!-- Physical Spontaneity -->
-                <div class="legend-item physical">
-                    <div class="color-circle"></div>
-                    <div class="legend-details">
-                        <div class="legend-title">🟢 綠色貼文 = 活力與大肌肉 (Active & Physical)</div>
-                        <div class="legend-desc">身體是最好的玩具 — 這裡給小朋友空間盡情奔跑、攀爬、跳躍，由自己決定活動量和節奏。</div>
-                        <div class="legend-examples">例如：廣闊草坪讓孩子自由奔跑、多功能攀爬架讓孩子自選難度、開放式球場讓孩子自訂規則。</div>
-                    </div>
-                </div>
-                
-                <!-- Quiet / Sensory -->
-                <div class="legend-item quiet">
-                    <div class="color-circle"></div>
-                    <div class="legend-details">
-                        <div class="legend-title">🔵 藍色貼文 = 寧靜與專注 (Quiet & Focused)</div>
-                        <div class="legend-desc">不是所有遊戲都要嘈吵 — 這裡讓小朋友按自己步伐深度投入：拼圖、共讀、感官探索，家長也可以放鬆陪伴。</div>
-                        <div class="legend-examples">例如：圖書館兒童角（共讀/靜態玩具）、感官牆（觸覺/視覺刺激）、室內遊戲室（惡劣天氣備用）。</div>
-                    </div>
-                </div>
-                
-                <!-- Thrill / Joy -->
-                <div class="legend-item thrill">
-                    <div class="color-circle"></div> 
-                    <div class="legend-details">
-                        <div class="legend-title">🟣 紫色貼文 = 刺激與挑戰 (Thrill & Challenge)</div>
-                        <div class="legend-desc">小朋友天生喜歡測試自己的極限 — 這裡讓他們在安全環境下體驗冒險、克服恐懼、感受「我做到了！」的喜悅。</div>
-                        <div class="legend-examples">例如：高滑梯/攀爬塔（挑戰高度）、平衡/搖晃設施（本體感挑戰）、開放式冒險地形（自主評估風險）。</div>
-                    </div>
+                <div class="inline-figure">
+                    <img src="../downloads/legend_sheet_media/media/image9.png" alt="Padlet 發佈貼文按鈕畫面">
                 </div>
             </div>
+
+            <div class="examples-box">
+                <h4>示範地點一覽（社區資源示例）</h4>
+                <table class="ref-table">
+                    <thead>
+                        <tr>
+                            <th>地點</th>
+                            <th>地區</th>
+                            <th>類別</th>
+                            <th>推薦原因重點</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>元朗公園 (大橋路)</td>
+                            <td>元朗</td>
+                            <td>戶外</td>
+                            <td>廣闊無圍欄草坪讓孩子自訂規則，噴泉廣場引發自發性水玩。</td>
+                        </tr>
+                        <tr>
+                            <td>天水圍公園 (天瑞路)</td>
+                            <td>元朗</td>
+                            <td>戶外</td>
+                            <td>迷宮／洞穴引發探索欲，香味植物刺激感官好奇心。</td>
+                        </tr>
+                        <tr>
+                            <td>兆麟體育館兒童遊戲室</td>
+                            <td>屯門</td>
+                            <td>室內</td>
+                            <td>攀石牆讓孩子自己決定爬多高，室內不受天氣干擾。</td>
+                        </tr>
+                        <tr>
+                            <td>屯門公園共融遊樂場</td>
+                            <td>屯門</td>
+                            <td>戶外</td>
+                            <td>無固定玩法水沙設計；傷健兒童自然同場互動。</td>
+                        </tr>
+                        <tr>
+                            <td>深水埗公園兒童遊樂場</td>
+                            <td>深水埗</td>
+                            <td>戶外</td>
+                            <td>高滑梯讓孩子自主評估風險、克服恐懼。</td>
+                        </tr>
+                        <tr>
+                            <td>北河街體育館兒童遊戲室</td>
+                            <td>深水埗</td>
+                            <td>室內</td>
+                            <td>安靜環境讓孩子深度投入，適合需要低刺激環境的孩子。</td>
+                        </tr>
+                        <tr>
+                            <td>車公廟體育館兒童遊戲室</td>
+                            <td>沙田</td>
+                            <td>室內</td>
+                            <td>孩子自主選擇活動；平台花園提供半戶外靜態遊玩空間。</td>
+                        </tr>
+                        <tr>
+                            <td>沙田公園 (源禾路)</td>
+                            <td>沙田</td>
+                            <td>戶外</td>
+                            <td>石山、城堡、迷宮是沒有劇本的空間，孩子自然發展角色扮演。</td>
+                        </tr>
+                        <tr>
+                            <td>茶果嶺海濱公園 (偉業街)</td>
+                            <td>觀塘</td>
+                            <td>戶外</td>
+                            <td>樹屋繩網讓孩子面對高度、測試膽量。</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="instructions-box">
+                <h3>步驟 1：如何在 Padlet 標記地點？</h3>
+                <ol class="step-list">
+                    <li><strong>標題：</strong>填寫地點名稱（例如：九龍公園）。</li>
+                    <li><strong>相片：</strong>上載或搜尋該地點的相片。</li>
+                    <li><strong>區段：</strong>選擇該地點所屬的地區（如：九龍城、沙田等）。</li>
+                    <li><strong>地方類別（必填）：</strong>童亮館、室內遊樂設施、戶外遊樂設施、公共空間、圖書館、其他。</li>
+                </ol>
+            </div>
+
         </div>
-        
+
         <div class="appendix-box">
-            <h3>📋 參考地點一覽（九大社區資源示例）</h3>
+            <h3>參考地點一覽（九大社區資源示例）</h3>
             <table class="ref-table">
                 <thead>
                     <tr>
                         <th>地點</th>
                         <th>地區</th>
-                        <th>地方類別</th>
-                        <th>建議顏色</th>
+                        <th>類別</th>
                         <th>推薦原因重點</th>
                     </tr>
                 </thead>
@@ -427,70 +434,61 @@
                     <tr>
                         <td>元朗公園 (大橋路)</td>
                         <td>元朗</td>
-                        <td>戶外遊樂設施</td>
-                        <td><span class="color-dot dot-green"></span>🟢 綠色</td>
-                        <td>廣闊無圍欄的草坪讓孩子自訂跑跑跳跳的規則，噴泉廣場引發自發性水玩，家長毋須全程指揮</td>
+                        <td>戶外</td>
+                        <td>廣闊無圍欄草坪讓孩子自訂規則，噴泉廣場引發自發性水玩</td>
                     </tr>
                     <tr>
                         <td>天水圍公園 (天瑞路)</td>
                         <td>元朗</td>
-                        <td>戶外遊樂設施</td>
-                        <td><span class="color-dot dot-yellow"></span>🟡 黃色</td>
-                        <td>迷宮/洞穴引發孩子主動探索欲，香味植物刺激感官好奇心，沒有「正確答案」的空間讓孩子自訂旅程</td>
+                        <td>戶外</td>
+                        <td>迷宮／洞穴引發探索欲，香味植物刺激感官好奇心</td>
                     </tr>
                     <tr>
-                        <td>兆麟體育館兒童遊戲室 (兆麟街)</td>
+                        <td>兆麟體育館兒童遊戲室</td>
                         <td>屯門</td>
-                        <td>室內遊樂設施</td>
-                        <td><span class="color-dot dot-blue"></span>🔵 藍色</td>
-                        <td>攀石牆讓孩子自己決定爬多高，室內環境讓孩子專注投入而不受天氣干擾，家長毋須在旁不斷提示</td>
+                        <td>室內</td>
+                        <td>攀石牆讓孩子自己決定爬多高，室內不受天氣干擾</td>
                     </tr>
                     <tr>
-                        <td>屯門公園共融遊樂場 (友愛路)</td>
+                        <td>屯門公園共融遊樂場</td>
                         <td>屯門</td>
-                        <td>戶外遊樂設施</td>
-                        <td><span class="color-dot dot-red"></span>🔴 紅色</td>
-                        <td>無固定玩法的水沙設計激發孩子自創遊戲；傷健兒童自然同場互動，毋須大人刻意安排「融合活動」</td>
+                        <td>戶外</td>
+                        <td>無固定玩法水沙設計；傷健兒童自然同場互動</td>
                     </tr>
                     <tr>
-                        <td>深水埗公園兒童遊樂場 (荔枝角道)</td>
+                        <td>深水埗公園兒童遊樂場</td>
                         <td>深水埗</td>
-                        <td>戶外遊樂設施</td>
-                        <td><span class="color-dot dot-purple"></span>🟣 紫色</td>
-                        <td>高滑梯和攀爬塔讓孩子自主評估風險、克服恐懼；「我自己爬上去」的成就感是自信心的根基</td>
+                        <td>戶外</td>
+                        <td>高滑梯讓孩子自主評估風險、克服恐懼</td>
                     </tr>
                     <tr>
-                        <td>北河街體育館兒童遊戲室 (北河街)</td>
+                        <td>北河街體育館兒童遊戲室</td>
                         <td>深水埗</td>
-                        <td>室內遊樂設施</td>
-                        <td><span class="color-dot dot-blue"></span>🔵 藍色</td>
-                        <td>安靜環境讓孩子深度投入一件事，不被噪音分心；適合需要低刺激環境的孩子，家長可以真正放鬆陪伴</td>
+                        <td>室內</td>
+                        <td>安靜環境讓孩子深度投入，適合需要低刺激環境的孩子</td>
                     </tr>
                     <tr>
-                        <td>車公廟體育館兒童遊戲室 (沙田頭路)</td>
+                        <td>車公廟體育館兒童遊戲室</td>
                         <td>沙田</td>
-                        <td>室內遊樂設施</td>
-                        <td><span class="color-dot dot-blue"></span>🔵 藍色</td>
-                        <td>室內遊戲室讓孩子自主選擇活動；平台花園提供半戶外靜態遊玩空間，孩子主導，家長練習「放手觀察」</td>
+                        <td>室內</td>
+                        <td>孩子自主選擇活動；平台花園提供半戶外靜態遊玩空間</td>
                     </tr>
                     <tr>
                         <td>沙田公園 (源禾路)</td>
                         <td>沙田</td>
-                        <td>戶外遊樂設施</td>
-                        <td><span class="color-dot dot-yellow"></span>🟡 黃色</td>
-                        <td>石山、城堡、迷宮都是沒有劇本的空間，孩子自然發展出角色扮演和探索故事；城門河畔讓想像力自由延伸</td>
+                        <td>戶外</td>
+                        <td>石山、城堡、迷宮是沒有劇本的空間，孩子自然發展角色扮演</td>
                     </tr>
                     <tr>
                         <td>茶果嶺海濱公園 (偉業街)</td>
                         <td>觀塘</td>
-                        <td>戶外遊樂設施</td>
-                        <td><span class="color-dot dot-purple"></span>🟣 紫色</td>
-                        <td>樹屋繩網讓孩子面對高度、測試自己膽量；自然主題設施鼓勵孩子以身體探索環境，體驗真實的風險與成就</td>
+                        <td>戶外</td>
+                        <td>樹屋繩網讓孩子面對高度、測試膽量</td>
                     </tr>
                 </tbody>
             </table>
         </div>
-        
+
         <footer class="footer">
             <strong>自由遊戲個案研討會</strong> | 活動 2 材料 | 請將此卡放在小組桌面上供參考
         </footer>
