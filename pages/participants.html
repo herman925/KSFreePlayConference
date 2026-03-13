@@ -10,6 +10,53 @@
     <script src="https://cdn.sheetjs.com/xlsx-0.20.1/package/dist/xlsx.full.min.js"></script>
     <link rel="stylesheet" href="../styles/participants.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .reference-links {
+            display: grid;
+            gap: 12px;
+        }
+
+        .reference-link {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            padding: 14px 16px;
+            border: 1px solid #e8edf5;
+            border-radius: 10px;
+            text-decoration: none;
+            color: inherit;
+            background: #fbfcfe;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+        }
+
+        .reference-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(43, 57, 144, 0.08);
+            border-color: rgba(249, 157, 51, 0.45);
+        }
+
+        .reference-link-text {
+            display: grid;
+            gap: 4px;
+        }
+
+        .reference-link-title {
+            color: var(--brand-navy);
+            font-weight: 700;
+        }
+
+        .reference-link-note {
+            color: #667085;
+            font-size: 0.9rem;
+        }
+
+        .reference-link-icon {
+            color: var(--brand-orange);
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -18,7 +65,7 @@
                 <i class="fas fa-arrow-left"></i> Back to Dashboard
             </a>
             <div class="person-selector">
-                <select id="roleSelect">
+                <select id="roleSelect" title="Select your role">
                     <option value="">Select Your Role</option>
                 </select>
             </div>
@@ -34,6 +81,21 @@
         </section>
 
         <section class="page-grid">
+            <div class="page-card">
+                <div class="section-header">
+                    <h2><i class="fas fa-file-download"></i> Registration References</h2>
+                </div>
+                <div class="reference-links">
+                    <a class="reference-link" href="../downloads/Grouping.pdf" download>
+                        <div class="reference-link-text">
+                            <span class="reference-link-title">Download Grouping Sheet</span>
+                            <span class="reference-link-note">Use during participant check-in and pre-assigned seating confirmation.</span>
+                        </div>
+                        <i class="fas fa-download reference-link-icon"></i>
+                    </a>
+                </div>
+            </div>
+
             <div class="page-card">
                 <div class="section-header">
                     <h2><i class="fas fa-list"></i> Registration List</h2>
